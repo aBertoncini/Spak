@@ -1,0 +1,617 @@
+// !!! BUTTONS !!!
+$c-btn-bg: $spak-btn-bg-color;
+$c-btn-border: $spak-btn-border-color;
+$c-btn-font: $spak-btn-txt-color;
+$c-btn-bg-active: darken($c-btn-bg, 20%);
+$c-btn-border-active: darken($c-btn-bg, 20%);
+$c-btn-font-active: $c-btn-font;
+
+$btn-padding-x: 0.75rem;
+$btn-padding-y: 0.375rem;
+$btn-border-radius: 0.375rem;
+$btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+  0 1px 1px rgba(0, 0, 0, 0.075);
+$btn-disabled-opacity: 0.65;
+$btn-focus-box-shadow: 0 0 0 0.25rem rgba($c-btn-bg, 0.5);
+$btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
+
+.bulma-btn {
+  cursor: pointer;
+  justify-content: center;
+  padding-bottom: calc(0.5em - 1px);
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: calc(0.5em - 1px);
+  text-align: center;
+  white-space: nowrap;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: none;
+  display: inline-flex;
+  font-size: 1rem;
+  height: 2.5em;
+  justify-content: flex-start;
+  line-height: 1.5;
+  padding-bottom: calc(0.5em - 1px);
+  padding-left: calc(0.75em - 1px);
+  padding-right: calc(0.75em - 1px);
+  padding-top: calc(0.5em - 1px);
+  position: relative;
+  vertical-align: top;
+  margin: 0;
+}
+
+.bs-btn {
+  margin: 0;
+  text-transform: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  appearance: button;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+
+  display: inline-block;
+  padding: $btn-padding-y $btn-padding-x;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: $btn-transition;
+  box-shadow: $btn-box-shadow;
+  &:focus {
+    box-shadow: $btn-focus-box-shadow;
+  }
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+.btn {
+  @extend .bs-btn;
+  //@extend .bulma-btn;
+  background-color: $c-btn-bg; //colore di sfondo
+  border: 0.125em solid $c-btn-border;
+  color: $c-btn-font;
+  border-radius: 6px;
+  transition: ease 0.25s;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $c-btn-bg-active;
+    border-color: $c-btn-border-active;
+    color: $c-btn-font-active;
+  }
+  &:focus:not(:focus-visible),
+  &:focus:not(:active) {
+    outline: tint-color($c-btn-bg-active, 60%) solid 0.2em;
+    //box-shadow: none;
+  }
+  &:disabled {
+    cursor: default;
+    background-color: tint-color($c-btn-bg, 20%);
+    border-color: tint-color($c-btn-bg, 20%);
+    color: tint-color($c-btn-font, 20%);
+  }
+}
+
+.btn-transparent {
+  @extend .btn;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  border-radius: 0;
+  transition: none;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: transparent;
+    border: none;
+  }
+  &:focus:not(:focus-visible),
+  &:focus:not(:active) {
+    outline: #0000 solid 0em;
+    box-shadow: none;
+  }
+  &:disabled {
+    cursor: default;
+    background-color: transparent;
+    border: none;
+  }
+}
+
+// X per chiudere modali
+.btn-close {
+  background-color: $spak-btn-close-bg-color;
+  color: $spak-btn-close-txt-color;
+}
+
+$btn-ref-bg-color: $spak-btn-refresh-bg-color;
+$btn-ref-txt-color: $spak-btn-refresh-txt-color;
+.btn-refresh {
+  background-color: $btn-ref-bg-color;
+  border: none;
+  color: $btn-ref-txt-color;
+  margin: 0;
+  padding: 0;
+  font-size: 1.3em;
+  &:hover,
+  &:active,
+  &:focus {
+    color: shade-color($btn-ref-txt-color, 20%);
+  }
+}
+
+$btn-check-bg: $spak-btn-check-bg-color;
+$btn-check-txt: $spak-btn-check-txt-color;
+.btn-check {
+  &:checked + .btn {
+    background-color: darken($btn-check-bg, 20%);
+    color: $btn-check-txt;
+    border: 0;
+  }
+  &:active + .btn {
+    background-color: lighten($c-btn-bg, 10%);
+    color: $c-btn-font;
+    border: 0;
+  }
+}
+
+//-- btn icon animation
+.btn-icon {
+  & div {
+    display: inline-block;
+    transform: rotateX(0deg);
+    transition: 0.5s;
+  }
+  &.clicked div {
+    display: inline-block;
+    transform: rotateX(180deg);
+    transition: 0.5s;
+  }
+}
+
+// !!! INPUTS !!!
+//-- bootstrap inputs
+$bl-border-color: $spak-form-floating-bl-border-color;
+$bl-label-color: $spak-form-floating-bl-label-color;
+
+.form-floating.bottom-line {
+  // bottom line input
+  width: auto;
+  & input[type="number"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+  }
+  & input::-webkit-outer-spin-button,
+  & input::-webkit-inner-spin-button {
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  & .form-control,
+  & .form-select {
+    border-style: none none solid none;
+    border-radius: 0;
+    &:focus {
+      box-shadow: none;
+      border-width: 0.2em;
+      border-radius: 8px;
+      border-color: $bl-border-color;
+      transition: 0.2s ease-in-out;
+      & + label {
+        color: $bl-label-color;
+        transition: 0.2s ease-in-out;
+      }
+    }
+    &:disabled {
+      color: tint-color($bl-border-color, 35%);
+      background-color: transparent;
+    }
+  }
+}
+
+//-- bootstrap checkbox btn
+$form-check-bg: $spak-form-check-bg-color;
+$form-check-border: $spak-form-check-border-color;
+.form-check-input {
+  &:checked {
+    background-color: $form-check-bg;
+    border-color: $form-check-border;
+  }
+  &:focus {
+    border-color: tint-color($form-check-border, 50%);
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem tint-color($form-check-border, 50%);
+  }
+}
+
+.icon-input {
+  position: relative;
+  box-sizing: border-box;
+  clear: both;
+  & .form-control {
+    &.icon {
+      &-left {
+        padding-left: 2.5em;
+      }
+      &-right {
+        padding-right: 2.5em;
+      }
+    }
+  }
+  & .form-control ~ .icon {
+    height: 2.5em;
+    pointer-events: none;
+    position: absolute;
+    bottom: 0;
+    width: 2.5em;
+    z-index: 4;
+    &.is-left {
+      left: 0;
+    }
+    &.is-right {
+      right: 0;
+    }
+  }
+}
+
+// !!! FORM !!!
+
+//*** checkbox & radio
+.spak-check {
+  display: inline-flex;
+  align-content: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 0.5em;
+  //-- checkbox style
+  input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: $spak-check-bg;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid rgba($spak-check-border-color, 0.65);
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+    &::before {
+      content: "";
+      width: 0.65em;
+      height: 0.65em;
+      transform: scale(0);
+      transition: 120ms transform ease-in-out;
+      background-color: CanvasText;
+      //-- check symbol + color
+      box-shadow: inset 1em 1em $spak-check-color;
+      -webkit-clip-path: polygon(
+        14% 44%,
+        0 65%,
+        50% 100%,
+        100% 16%,
+        80% 0%,
+        43% 62%
+      );
+      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+      transform-origin: bottom left;
+    }
+    &:checked {
+      background-color: $spak-check-bg-checked;
+      &::before {
+        transform: scale(1);
+      }
+    }
+    &:focus {
+      outline: max(2px, 0.15em) solid rgba($spak-check-border-color, 0.5);
+      //outline-offset: max(1px, 0.05em);
+    }
+    &:disabled {
+      cursor: not-allowed;
+      background-color: lighten($spak-check-bg, 20%);
+      color: lighten($spak-check-color, 20%);
+      border-color: lighten(
+        rgba(darken($spak-check-bg-checked, 20%), 0.65),
+        20%
+      );
+    }
+  }
+  + .spak-check {
+    margin-top: 1em;
+  }
+}
+
+//*** form floating label ***
+.floating-label-container {
+  position: relative;
+  margin: $spak-float-container-margin;
+  margin-top: add();
+  label {
+    color: $spak-float-label-color;
+    background-color: transparent;
+    width: auto;
+    font-size: 0.8em;
+    padding: $spak-float-padding-label;
+    //padding: 0.rem 0.375rem;
+    //line-height: 1rem;
+  }
+  .float-field {
+    outline: 0;
+    width: 100%;
+    padding: $spak-float-padding-label;
+    transition: border-color 0.25s ease-in-out;
+    border: 0.125em solid $spak-float-border-color;
+    border-radius: 5px;
+    background-color: transparent;
+    font: inherit;
+    line-height: 100%;
+    &:focus {
+      border-color: $spak-float-border-color-focus;
+      box-shadow: 0;
+    }
+    &::-webkit-input-placeholder {
+      color: $spak-float-placeholder-color;
+    }
+    &::-moz-placeholder {
+      color: $spak-float-placeholder-color;
+    }
+    &:-ms-input-placeholder {
+      color: $spak-float-placeholder-color;
+    }
+    &::-ms-input-placeholder {
+      color: $spak-float-placeholder-color;
+    }
+    &::placeholder {
+      color: $spak-float-placeholder-color;
+    }
+
+    //^^^ float field type 1 ^^^
+    &.--t1 {
+      padding: $spak-float-padding-label;
+      + label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        //width: 100%;
+        height: 100%;
+        overflow: hidden;
+        text-align: start;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        pointer-events: none;
+        border: 1px solid transparent;
+        transform-origin: 0 0;
+        @include transition($spak-float-transition);
+      }
+      //^^^ float field type 1 only bottom line ^^^
+      &.bottom-line {
+        border-width: 0 0 0.125rem 0;
+        border-radius: 0;
+      }
+      &::-webkit-input-placeholder {
+        color: transparent;
+      }
+      &::-moz-placeholder {
+        color: transparent;
+      }
+      &:-ms-input-placeholder {
+        color: transparent;
+      }
+      &::-ms-input-placeholder {
+        color: transparent;
+      }
+      &::placeholder {
+        color: transparent;
+      }
+      &:focus,
+      &:not(:placeholder-shown) {
+        padding: $spak-float-padding-label;
+        ~ label {
+          width: auto;
+          height: -webkit-max-content;
+          height: -moz-max-content;
+          height: max-content;
+          padding: $spak-float-padding-label-focus;
+          transform: $spak-float-label-transform;
+          background-color: $spak-float-label-bg;
+        }
+      }
+      // Duplicated because `:-webkit-autofill` invalidates other selectors when grouped
+      &:-webkit-autofill {
+        padding: $spak-float-padding-label;
+        ~ label {
+          width: auto;
+          height: -webkit-max-content;
+          height: max-content;
+          padding: $spak-float-padding-label-focus;
+          transform: $spak-float-label-transform;
+          background-color: $spak-float-label-bg;
+        }
+      }
+    }
+  }
+}
+/* .floating-label-field--s1 {
+  transition: border-color 0.25s ease-in-out;
+  color: $spak-float-field-color;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.05);
+  background-color: $background-color_1;
+  padding: 1.5em;
+  + {
+    .floating-label {
+      transition: transform 0.25s, opacity 0.25s ease-in-out;
+      transform-origin: 0 0;
+      opacity: 0.5;
+      padding: 1.5em;
+      z-index: 1500;
+    }
+  }
+  &:focus {
+    border-color: $border-color_1;
+    + {
+      .floating-label {
+        transform: translate(0.25em, -30%) scale(0.8);
+        opacity: 0.25;
+      }
+    }
+  }
+  &:not(:placeholder-shown) {
+    border-color: $border-color_1;
+    + {
+      .floating-label {
+        transform: translate(0.25em, -30%) scale(0.8);
+        opacity: 0.25;
+      }
+    }
+  }
+  &:valid {
+    &:not(:placeholder-shown) {
+      border-color: $border-color_2;
+    }
+  }
+  &:invalid {
+    border-color: $border-color_3;
+  }
+  &:not(textarea) {
+    max-height: 4em;
+  }
+  &::placeholder {
+    color: transparent;
+  }
+}
+.floating-label-field--s2 {
+  transition: background-color 0.25s ease-in-out;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  background-color: $background-color_2;
+  padding: 1.5em;
+  + {
+    .floating-label {
+      visibility: hidden;
+      transition: transform 0.25s, visibility 0.5s, opacity 0.5s ease-in-out;
+      opacity: 0;
+      padding: 1.5em;
+      z-index: 1500;
+    }
+  }
+  &:focus {
+    + {
+      .floating-label {
+        visibility: visible;
+        transform: translateY(-80%);
+        opacity: 0.5;
+      }
+    }
+  }
+  &:not(:placeholder-shown) {
+    + {
+      .floating-label {
+        visibility: visible;
+        transform: translateY(-80%);
+        opacity: 0.5;
+      }
+    }
+  }
+  &:valid {
+    &:not(:placeholder-shown) {
+      border-color: $border-color_4;
+      background-color: $background-color_3;
+    }
+  }
+  &:invalid {
+    border-color: $border-color_5;
+    background-color: $background-color_4;
+  }
+  &:not(textarea) {
+    max-height: 4em;
+  }
+}
+.floating-label-field--s3 {
+  padding: 0.75em;
+  transition: border-color 0.25s ease-in-out;
+  color: $spak-float-field-color;
+  border: 0.125em solid rgba($spak-float-border-color, 0.1);
+  border-radius: 5px;
+  background-color: transparent;
+  font: inherit;
+  + {
+    .floating-label {
+      position: absolute;
+      top: 0.75em;
+      left: 0.75em;
+      display: inline-block;
+      width: auto;
+      margin: 0;
+      padding: 0.75em;
+      transition: transform 0.25s, opacity 0.25s, padding 0.25s ease-in-out;
+      transform-origin: 0 0;
+      //color: $color_4;
+    }
+  }
+  &:focus,
+  &:not(:placeholder-shown) {
+    //border-color: $border-color_1;
+    + {
+      .floating-label {
+        z-index: 2500;
+        padding: 0.75em;
+        transform: translate(0, -1em) scale(0.9);
+        //color: $color_5;
+        background-color: $spak-float-label-bg;
+      }
+    }
+  }
+  &:not(textarea) {
+    max-height: 4em;
+  }
+  &::placeholder {
+    color: transparent;
+  }
+} */
+
+
+//!!! OVERRIDE BULMA !!!
+
+.spak {
+  &.select select:focus,
+  &.textarea:focus,
+  &.input:focus,
+  &.select select.is-focused,
+  &.is-focused.textarea,
+  &.is-focused.input,
+  &.select select:active,
+  &.textarea:active,
+  &.input:active,
+  &.select select.is-active,
+  &.is-active.textarea,
+  &.is-active.input {
+    border-color: $spak-bulma-form-focus-border-color;
+    box-shadow: 0 0 0 0.125em $spak-bulma-form-focus-box-shadow-color;
+  }
+  .textarea,
+  .input {
+    box-shadow: inset 0 0.0625em 0.125em $spak-bulma-form-focus-box-shadow-color;
+  }
+}

@@ -1,0 +1,43 @@
+// !!! MEDIA QUERIES !!!
+@mixin breakpoint($size) {
+  @if $size == mobile {
+    @media (max-width: 599px) {
+      @content;
+    }
+  } @else if $size == mobile-xs-down {
+    @media (max-height: 650px) {
+      @content;
+    }
+  } @else if $size == mobile-up {
+    @media (min-width: 600px) {
+      @content;
+    }
+  } @else if $size == tablet-up {
+    @media (min-width: 769px) {
+      @content;
+    }
+  } @else if $size == tablet-down {
+    @media (max-width: 769px) {
+      @content;
+    }
+  } @else if $size == laptop-up {
+    @media (min-width: 992px) {
+      @content;
+    }
+  } @else if $size == laptop-down {
+    @media (max-width: 992px) {
+      @content;
+    }
+  } @else if $size == xl-monitor {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+/* 
+  * usage of media queries
+  .class{
+    @include breakpoint('mobile'){
+      [attributes]
+    }
+  }*/

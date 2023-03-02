@@ -85,6 +85,7 @@ button:not(:disabled) {
 .btn {
   @extend .bs-btn;
   //@extend .bulma-btn;
+  cursor: pointer;
   background-color: $c-btn-bg; //colore di sfondo
   border: 0.125em solid $c-btn-border;
   color: $c-btn-font;
@@ -112,11 +113,15 @@ button:not(:disabled) {
 
 .btn-transparent {
   @extend .btn;
+  cursor: pointer;
   background-color: transparent;
   border: none;
   color: inherit;
   border-radius: 0;
   transition: none;
+  box-shadow: none;
+  offset: 0;
+  outline: 0;
   &:hover,
   &:active,
   &:focus {
@@ -132,6 +137,12 @@ button:not(:disabled) {
     cursor: default;
     background-color: transparent;
     border: none;
+  }
+  &-icon {
+    @extend .btn-transparent;
+    font-size: 1.5em;
+    padding: 0;
+    margin: 0 0.5em;
   }
 }
 
@@ -590,7 +601,6 @@ $form-check-border: $spak-form-check-border-color;
     color: transparent;
   }
 } */
-
 
 //!!! OVERRIDE BULMA !!!
 

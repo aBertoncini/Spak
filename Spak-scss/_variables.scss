@@ -45,7 +45,7 @@ $colors: (
   text-dark-2: #ebebeba3,
 );
 
-//*** color functions used in vue components
+//*** vars functions used in vue components
 //-- define local variable
 @mixin def-var($name, $value) {
   #{--$name}: $value;

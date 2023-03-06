@@ -1,4 +1,5 @@
-# Spak
+# Spak 
+## V.2.1 del 06/03/2023
 Repository di regole scss e componenti Vue da riutilizzare.
 Questa guida si riferisce a progetti Vue, ma è possibile utilizzare Spak-scss anche per altri progeti poichè è una libreria css.
 
@@ -11,7 +12,15 @@ Per usare *Spak* è necessario installare sass
 > `npm install sass`
 >> occasionalmente installare anche `sass-loader`
 
-Importare nel foglio di stile principale *(ex. main.scss)* il file `_Spak.scss`.
+### Step per installazione da file unico per più progetti
+- Importare in `main.scss` del progetto la cartella `variables` tramite il comando `@import "./path-to-spak/variables"`.
+- Importare nel foglio di stile principale *(ex. main.scss)* il file `_Spak.scss` tramite il comando `@import "./path-to-spak/Spak"`.
+- Scrivere le proprie regole all'interno di `main.scss`.
+
+Se si vogliono utilizzare le proprie variabili all'interno del progetto allora:
+- Copiare la cartella `variables` all'interno del proprio progetto e importarla nel file `main.scss` tramite il comando `@import "./path-to-assets/variables"`.
+- Importare nel foglio di stile principale *(ex. main.scss)* il file `_Spak.scss` tramite il comando `@import "./path-to-spak/Spak"`.
+- Scrivere le proprie regole all'interno di `main.scss`.
 
 ## Contenuto
 
@@ -45,4 +54,6 @@ All'interno del progetto vengono importate librerie css
   - **IconMaterialContainer**: contenitore per mostrare le icone di Google Material.
   - **ModalVue**: modale personalizzato.
   - **OffCanvasMenu**: slider offcanvas per menù a scorrimento *(ex. app mobile)*.
+  - **ReadJSON**: componente che legge i file json e li salva all'interno di una variabile da un input.
+  - **FormList**: lista di elementi input *(usato per la gestione del database)*.
   

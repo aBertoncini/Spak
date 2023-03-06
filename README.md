@@ -36,24 +36,24 @@ All'interno del progetto vengono importate librerie css
 - **Animazioni**
   - Animate.css
   
-  # Spak-Vue
-  Contiene dei componenti con estensione `.vue` che posssono essere riutilizzati.
-  > All'interno dei componenti si importa il file `_variables.scss` per le colorazioni e dati variabili.
-  
-  ## Installazione 
-  Importare il file che si vuole all'interno del progetto e seguire le istruzioni del componente descritte all'interno di esso.
-  
-  Alcuni componenti necessitano di un ulteriore componente vue `GlobalEvents`
-  > `npm install vue-global-events`
-  
-  ## Contenuto
-  - **FollowCursor**: cursore personalizzato *(con annesso file .js)*.
-  - **BtnRipple**: pulsante con effetto ripple all'interno.
-  - **ContextMenu**: menù contestuale sul click destro del mouse.
-  - **CookiesAccept**: menù per accettazione cookies.
-  - **IconMaterialContainer**: contenitore per mostrare le icone di Google Material.
-  - **ModalVue**: modale personalizzato.
-  - **OffCanvasMenu**: slider offcanvas per menù a scorrimento *(ex. app mobile)*.
-  - **ReadJSON**: componente che legge i file json e li salva all'interno di una variabile da un input.
-  - **FormList**: lista di elementi input *(usato per la gestione del database)*.
+# Spak-Vue
+Contiene dei componenti con estensione `.vue` che posssono essere riutilizzati.
+> All'interno dei componenti si importa il file `_variables.scss` per le colorazioni e dati variabili.
+
+## Installazione 
+Importare il file che si vuole all'interno del progetto e seguire le istruzioni del componente descritte all'interno di esso.
+
+Alcuni componenti necessitano di un ulteriore componente vue `GlobalEvents`
+> `npm install vue-global-events`
+
+## Contenuto
+- **FollowCursor**: cursore personalizzato *(con annesso file .js)*.
+- **BtnRipple**: pulsante con effetto ripple all'interno.
+- **ContextMenu**: menù contestuale sul click destro del mouse.
+- **CookiesAccept**: menù per accettazione cookies.
+- **IconMaterialContainer**: contenitore per mostrare le icone di Google Material.
+- **ModalVue**: modale personalizzato.
+- **OffCanvasMenu**: slider offcanvas per menù a scorrimento *(ex. app mobile)*.
+- **ReadJSON**: componente che legge i file json e li salva all'interno di una variabile da un input.
+- **FormList**: lista di elementi input *(usato per la gestione del database)*.
   

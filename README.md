@@ -1,5 +1,5 @@
 # Spak 
-## V.2.1 del 06/03/2023
+## V.2.1.1 del 06/03/2023
 Repository di regole scss e componenti Vue da riutilizzare.
 Questa guida si riferisce a progetti Vue, ma è possibile utilizzare Spak-scss anche per altri progeti poichè è una libreria css.
 
@@ -13,12 +13,12 @@ Per usare *Spak* è necessario installare sass
 >> occasionalmente installare anche `sass-loader`
 
 ### Step per installazione da file unico per più progetti
-- Importare in `main.scss` del progetto la cartella `variables` tramite il comando `@import "./path-to-spak/variables"`.
+- Importare in `main.scss` del progetto il file `_variables.scss` tramite il comando `@import "./path-to-spak/variables/variables"`.
 - Importare nel foglio di stile principale *(ex. main.scss)* il file `_Spak.scss` tramite il comando `@import "./path-to-spak/Spak"`.
 - Scrivere le proprie regole all'interno di `main.scss`.
 
 Se si vogliono utilizzare le proprie variabili all'interno del progetto allora:
-- Copiare la cartella `variables` all'interno del proprio progetto e importarla nel file `main.scss` tramite il comando `@import "./path-to-assets/variables"`.
+- Copiare la cartella `variables` all'interno del proprio progetto e importare il file `_variables.scss` nel file `main.scss` tramite il comando `@import "./path-to-assets/variables/variables"`.
 - Importare nel foglio di stile principale *(ex. main.scss)* il file `_Spak.scss` tramite il comando `@import "./path-to-spak/Spak"`.
 - Scrivere le proprie regole all'interno di `main.scss`.
 

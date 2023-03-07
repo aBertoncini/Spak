@@ -1,4 +1,3 @@
-
 // !!! DOM !!!
 :root {
   color: var(--root-color);
@@ -339,13 +338,16 @@ $table-border-color: $spak-table-border-color;
 }
 
 .txt {
-  &-c {
+  &-c,
+  &-center {
     text-align: center;
   }
-  &-r {
+  &-r,
+  &-end {
     text-align: right;
   }
-  &-l {
+  &-l,
+  &-start {
     text-align: left;
   }
   &-big {

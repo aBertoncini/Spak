@@ -17,7 +17,6 @@
 //*** import project colors ***
 @import "colors";
 
-
 $font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
   Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
   sans-serif;
@@ -84,6 +83,19 @@ $colors: (
 $spak-btn-bg-color: $primary;
 $spak-btn-txt-color: $white;
 $spak-btn-border-color: $primary;
+
+$spak-btn-bg-active: darken($spak-btn-bg-color, 20%);
+$spak-btn-border-active: darken($spak-btn-bg-color, 20%);
+$spak-btn-font-active: $spak-btn-txt-color;
+$spak-btn-padding-x: 0.75rem;
+$spak-btn-padding-y: 0.375rem;
+$spak-btn-border-radius: 0.375rem;
+$spak-btn-box-shadow: none; //inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
+$spak-btn-disabled-opacity: 0.65;
+$spak-btn-focus-box-shadow: 0 0 0 0.25rem rgba($spak-btn-bg-color, 0.5);
+$spak-btn-transition: color 0.15s ease-in-out,
+  background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
+
 //--btn-close
 $spak-btn-close-bg-color: transparent;
 $spak-btn-close-txt-color: $primary-text;

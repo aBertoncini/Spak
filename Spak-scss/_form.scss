@@ -604,8 +604,12 @@ $form-check-border: $spak-form-check-border-color;
     border-color: $spak-bulma-form-focus-border-color;
     box-shadow: 0 0 0 0.125em $spak-bulma-form-focus-box-shadow-color;
   }
-  .textarea,
-  .input {
+  &.textarea,
+  &.input {
     box-shadow: inset 0 0.0625em 0.125em $spak-bulma-form-focus-box-shadow-color;
+    border-radius: $spak-bulma-form-field-border-radius;
+  }
+  &.field.has-addons{
+    margin: 0;
   }
 }

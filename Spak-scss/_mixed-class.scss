@@ -87,6 +87,9 @@ body {
   .w-#{$i*10} {
     width: #{$i * 10 + "%"} !important;
   }
+  .gap-#{$i} {
+    gap: #{$i * 0.1 + "em"};
+  }
 }
 .h-available {
   height: -moz-available;

@@ -1,5 +1,5 @@
 # Spak 
-## V.2.1.1 del 06/03/2023
+## V.2.1.2 del 13/03/2023
 Repository di regole scss e componenti Vue da riutilizzare.
 Questa guida si riferisce a progetti Vue, ma è possibile utilizzare Spak-scss anche per altri progeti poichè è una libreria css.
 
@@ -43,8 +43,11 @@ Contiene dei componenti con estensione `.vue` che posssono essere riutilizzati.
 ## Installazione 
 Importare il file che si vuole all'interno del progetto e seguire le istruzioni del componente descritte all'interno di esso.
 
-Alcuni componenti necessitano di un ulteriore componente vue `GlobalEvents`
-> `npm install vue-global-events`
+Alcuni componenti necessitano di una libreria esterna, ad esempio.
+- `GlobalEvents` > `npm install vue-global-events`
+- `VueUse` > `npm install @vueuse/core`
+- `Anime.js` > `npm install animejs`
+
 
 ## Contenuto
 - **FollowCursor**: cursore personalizzato *(con annesso file .js)*.
@@ -56,4 +59,5 @@ Alcuni componenti necessitano di un ulteriore componente vue `GlobalEvents`
 - **OffCanvasMenu**: slider offcanvas per menù a scorrimento *(ex. app mobile)*.
 - **ReadJSON**: componente che legge i file json e li salva all'interno di una variabile da un input.
 - **FormList**: lista di elementi input *(usato per la gestione del database)*.
+- **DropdownBtn**: Componente per la creazione di un pulsante dropdown, customizzabile e con animazione annessa.
   

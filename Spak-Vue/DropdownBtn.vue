@@ -1,17 +1,13 @@
-<!-- !!! componente DropDown !!!
-  npm install animejs vueuse/core
-  slot content -> li.dropdown-li > button (anche in style del componente padre se si vuole personalizzare)
--->
-
 <script setup>
-import { ref } from "vue"; //<!---- da commentare in nuxt
-import { onClickOutside } from "@vueuse/core"; //<!---- da commentare in nuxt
+//import { ref } from "vue"; <!---- da commentare in nuxt
+//import { onClickOutside } from "@vueuse/core"; <!---- da commentare in nuxt
 import anime from "animejs/lib/anime.es";
 
 const props = defineProps({
   dropbtnClass: String,
   dropContentClass: String,
   dropOnHover: Boolean,
+  animateDropBtn: Object, //<!---- value: true|false, target: ''|'icon'
 });
 
 const dropdownContainerRef = ref(null);
@@ -37,6 +33,17 @@ function closeDropdown() {
       isActive.value = false;
     },
   });
+  if (props.animateDropBtn.value) {
+    let target = `.dropdown-btn ${
+      props.animateDropBtn.target === "icon" ? "i" : ""
+    }`;
+    anime({
+      targets: target,
+      rotate: "0deg",
+      easing: "easeInOutQuad",
+      duration: 300,
+    });
+  }
 }
 
 function openDropdown() {
@@ -48,6 +55,17 @@ function openDropdown() {
     opacity: 1,
     duration: 300,
   });
+  if (props.animateDropBtn.value) {
+    let target = `.dropdown-btn ${
+      props.animateDropBtn.target === "icon" ? "i" : ""
+    }`;
+    anime({
+      targets: target,
+      rotate: "90deg",
+      easing: "easeInOutQuad",
+      duration: 300,
+    });
+  }
 }
 
 defineExpose({
@@ -89,7 +107,6 @@ defineExpose({
   }
 }
 
-// se il menù si vuole spostarlo a dx usare .is-right in dropContentClass
 .dropdown-content {
   opacity: 0;
   display: none;
@@ -144,3 +161,9 @@ defineExpose({
   margin: 0.5rem 0;
 }
 </style>
+
+<!-- !!! componente DropDown !!!
+  npm install animejs vueuse/core
+  slot content -> li.dropdown-li > button (anche in style del componente padre se si vuole personalizzare)
+  props.animateDropdownBtn -> props con value: true|false e se true -> target: ''(anima il pulsante), 'icon'(anima l'icona interna) 
+-->

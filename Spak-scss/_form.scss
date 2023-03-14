@@ -343,24 +343,38 @@ $form-check-border: $spak-form-check-border-color;
   position: relative;
   margin: $spak-float-container-margin;
   //margin-top: add();
+  input[type="number"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: textfield;
+      margin: 0;
+    }
+  }
   label {
     color: $spak-float-label-color;
     background-color: transparent;
     width: auto;
-    font-size: $spak-float-font-size;
+    //font-size: $spak-float-label-font-size;
     padding: $spak-float-padding-label;
   }
   .float-field {
     outline: 0;
     width: 100%;
-    padding: $spak-float-padding-label;
+    padding: $spak-float-padding;
     transition: border-color 0.25s ease-in-out;
     border: 0.125em solid $spak-float-border-color;
     border-radius: 5px;
     background-color: transparent;
     font: inherit;
     line-height: 100%;
-    &:focus {
+    &:focus,
+    &:active,
+    &:hover {
       border-color: $spak-float-border-color-focus;
       box-shadow: 0;
     }
@@ -382,7 +396,7 @@ $form-check-border: $spak-form-check-border-color;
 
     //^^^ float field type 1 ^^^
     &.--t1 {
-      padding: $spak-float-padding-label;
+      //padding: $spak-float-padding;
       + label {
         position: absolute;
         top: 0;
@@ -395,6 +409,7 @@ $form-check-border: $spak-form-check-border-color;
         white-space: nowrap;
         pointer-events: none;
         border: 1px solid transparent;
+        padding: $spak-float-padding-label;
         transform-origin: 0 0;
         @include transition($spak-float-transition);
       }
@@ -420,7 +435,7 @@ $form-check-border: $spak-form-check-border-color;
       }
       &:focus,
       &:not(:placeholder-shown) {
-        padding: $spak-float-padding-label;
+        //padding: $spak-float-padding-label;
         ~ label {
           width: auto;
           height: -webkit-max-content;
@@ -429,11 +444,12 @@ $form-check-border: $spak-form-check-border-color;
           padding: $spak-float-padding-label-focus;
           transform: $spak-float-label-transform;
           background-color: $spak-float-label-bg;
+          color: $spak-float-label-color-active;
         }
       }
       // Duplicated because `:-webkit-autofill` invalidates other selectors when grouped
       &:-webkit-autofill {
-        padding: $spak-float-padding-label;
+        //padding: $spak-float-padding-label;
         ~ label {
           width: auto;
           height: -webkit-max-content;
@@ -441,6 +457,7 @@ $form-check-border: $spak-form-check-border-color;
           padding: $spak-float-padding-label-focus;
           transform: $spak-float-label-transform;
           background-color: $spak-float-label-bg;
+          color: $spak-float-label-color-active;
         }
       }
     }
@@ -607,7 +624,7 @@ $form-check-border: $spak-form-check-border-color;
     box-shadow: inset 0 0.0625em 0.125em $spak-bulma-form-focus-box-shadow-color;
     border-radius: $spak-bulma-form-field-border-radius;
   }
-  &.field.has-addons{
+  &.field.has-addons {
     margin: 0;
   }
 }

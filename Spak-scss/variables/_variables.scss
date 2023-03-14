@@ -94,7 +94,8 @@ $spak-btn-box-shadow: none; //inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px
 $spak-btn-disabled-opacity: 0.65;
 $spak-btn-focus-box-shadow: 0 0 0 0.25rem rgba($spak-btn-bg-color, 0.5);
 $spak-btn-transition: color 0.15s ease-in-out,
-  background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
+  background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+  box-shadow 0.15s ease-in-out !default;
 
 //--btn-close
 $spak-btn-close-bg-color: transparent;
@@ -123,11 +124,13 @@ $spak-float-border-color: rgba(lighten($secondary, 20%), 0.15);
 $spak-float-border-color-focus: rgba(lighten($secondary, 20%), 0.65);
 $spak-float-placeholder-color: rgba(darken($primary-text, 30%), 0.6);
 $spak-float-label-color: $spak-float-placeholder-color;
+$spak-float-label-color-active: darken($spak-float-border-color-focus, 20%);
 $spak-float-label-bg: $white;
-$spak-float-padding-label: calc(.54em - 1px) calc(.75em - 1px);//0.375rem 0.75rem;
-$spak-float-padding-label-focus: 0 0.375rem;
+$spak-float-padding-label: calc(0.54em - 1px) calc(0.75em - 1px);
+$spak-float-padding-label: calc(0.5em - 1px) calc(0.75em - 1px); //0.375rem 0.75rem;
+$spak-float-padding-label-focus: 0 calc(.75em - 1px);
 $spak-float-transition: all 0.25s ease-in-out;
-$spak-float-font-size: 1rem;
+$spak-float-label-font-size: 1rem;
 $spak-float-label-transform: scale(0.85) translateY(-1rem) translateX(0.15rem);
 
 //--cards

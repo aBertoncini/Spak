@@ -359,7 +359,7 @@ $form-check-border: $spak-form-check-border-color;
     color: $spak-float-label-color;
     background-color: transparent;
     width: auto;
-    //font-size: $spak-float-label-font-size;
+    font-size: $spak-float-label-font-size;
     padding: $spak-float-padding-label;
   }
   .float-field {
@@ -619,12 +619,45 @@ $form-check-border: $spak-form-check-border-color;
     border-color: $spak-bulma-form-focus-border-color;
     box-shadow: 0 0 0 0.125em $spak-bulma-form-focus-box-shadow-color;
   }
-  &.textarea,
+  &.textarea {
+    box-shadow: none;
+    border-radius: $spak-bulma-form-field-border-radius;
+    padding: $spak-form-input-padding;
+  }
   &.input {
     box-shadow: inset 0 0.0625em 0.125em $spak-bulma-form-focus-box-shadow-color;
     border-radius: $spak-bulma-form-field-border-radius;
+    padding: $spak-form-input-padding;
   }
   &.field.has-addons {
     margin: 0;
+  }
+}
+
+.spak.field.has-addons {
+  //*** pulsante aggregato con animazione del campo input
+  &.--t-animate {
+    .control.--animate-el {
+      width: 0;
+      min-width: none;
+      visibility: hidden;
+      transition: all 300ms ease-in-out;
+      &.--active-el {
+        width: min-content;
+        visibility: visible;
+        & ~ .control.--animate-btn {
+          //-- active -- btn is right
+          button {
+            border-radius: 0 $spak-btn-border-radius $spak-btn-border-radius 0;
+          }
+        }
+      }
+      & ~ .control.--animate-btn {
+        //-- non active -- btn is right
+        button {
+          border-radius: $spak-btn-border-radius;
+        }
+      }
+    }
   }
 }

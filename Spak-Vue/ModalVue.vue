@@ -4,7 +4,10 @@ import { ref } from "vue";
 <!---- il componente deve avere ref="NomeRef"
 <!---- richiamare NomeRef.show() quando deve essere aperto
 <!---- emit di after-close e after-open avvengono dopo close() e open()
-*/
+<!---- slot header
+<!---- slot content
+<!---- slot buttons
+  */
 
 const emit = defineEmits(["after-close", "after-show"]);
 
@@ -42,11 +45,12 @@ defineExpose({
         <div v-show="modalActive" class="modal-vue-inner">
           <!-- Modal Content -->
           <div class="modal-vue-header">
-            <span class="title">
+            <span class="modal-title">
               <slot name="header"></slot>
             </span>
             <span>
               <i @click="close" class="bi bi-x-lg"></i>
+              <i @click="close" class="fa-solid fa-xmark"></i>
             </span>
           </div>
           <div class="modal-vue-content">
@@ -113,7 +117,7 @@ defineExpose({
       justify-content: space-between;
       align-items: center;
       padding: 1.2em 0em;
-      .title {
+      .modal-title {
         font-size: 1.5em;
         font-weight: 600;
       }

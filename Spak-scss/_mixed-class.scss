@@ -96,6 +96,11 @@ body {
   height: -webkit-available;
   height: available;
 }
+.w-fill-available {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
+}
 
 // !!! CARDS !!!
 

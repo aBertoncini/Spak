@@ -4,11 +4,15 @@ import { ref } from "vue";
 <!---- il componente deve avere ref="NomeRef"
 <!---- richiamare NomeRef.show() quando deve essere aperto
 <!---- emit di after-close e after-open avvengono dopo close() e open()
+<!---- prop contentWidth -> stringa per largezza -> ex '80%'
 <!---- slot header
 <!---- slot content
 <!---- slot buttons
   */
 
+const props = defineProps({
+  contentWidth: String,
+});
 const emit = defineEmits(["after-close", "after-show"]);
 
 const modalActive = ref(false);
@@ -42,7 +46,11 @@ defineExpose({
       id="modalVueContainer"
     >
       <transition name="modal-animation-inner">
-        <div v-show="modalActive" class="modal-vue-inner">
+        <div
+          v-show="modalActive"
+          class="modal-vue-inner"
+          :style="{ width: contentWidth }"
+        >
           <!-- Modal Content -->
           <div class="modal-vue-header">
             <span class="modal-title">
@@ -102,13 +110,18 @@ defineExpose({
   background-color: #93939380;
   overflow: auto;
   padding: 2em 0em;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   .modal-vue-inner {
     z-index: 1001;
     position: relative;
     padding: 0em 1em 2em;
     margin: auto;
-    width: 80%;
-    max-width: 40em;
+    width: max-content;
+    max-width: 80%;
     background-color: #fff;
     box-shadow: 0 4px 6px -1px #0000001a, 0 2px 4px -1px #0000000f;
     border-radius: 4px;

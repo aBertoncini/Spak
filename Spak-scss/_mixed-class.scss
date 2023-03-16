@@ -97,9 +97,10 @@ body {
   height: available;
 }
 .w-fill-available {
+  //width: fill-available;
   width: -webkit-fill-available;
   width: -moz-available;
-  width: fill-available;
+  width: stretch;
 }
 
 // !!! CARDS !!!

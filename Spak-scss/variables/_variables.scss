@@ -174,9 +174,14 @@ $spak-subtitle-fs: 0.7em;
 $spak-subtitle-fw: 400;
 
 //!!! BULMA OVERRIDE !!!
-$spak-bulma-form-focus-border-color: darken($primary, 10%);
+$spak-bulma-form-focus-border-color: rgba(darken($primary, 10%), 0.4);
 $spak-bulma-form-focus-box-shadow-color: rgba(lighten($primary, 5%), 0.75);
+$spak-bulma-form-focus-box-shadow-input: none; //inset 0 0.0625em 0.125em $spak-bulma-form-focus-box-shadow-color;
+$spak-bulma-form-focus-box-shadow-is-active-input: 0 0 0 0.125em
+  $spak-bulma-form-focus-box-shadow-color;
+$spak-bulma-form-focus-box-shadow-textarea: none; //inset 0 0.0625em 0.125em $spak-bulma-form-focus-box-shadow-color;
 $spak-bulma-form-field-border-radius: 0.375rem;
+$spak-bulma-form-placeholder-color: rgba(darken($primary-text, 10%), 0.45);
 
 //!!! SPAK VARS !!!
 $spak-prefix: --spak-;

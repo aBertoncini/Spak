@@ -163,7 +163,37 @@ defineExpose({
 </style>
 
 <!-- !!! componente DropDown !!!
-  npm install animejs vueuse/core
+  npm install animejs @vueuse/core (nuxt += @vueuse/nuxt)
   slot content -> li.dropdown-li > button (anche in style del componente padre se si vuole personalizzare)
   props.animateDropdownBtn -> props con value: true|false e se true -> target: ''(anima il pulsante), 'icon'(anima l'icona interna) 
+
+  * ESEMPIO *
+    <SpakvueDropdownBtn
+      :dropbtnClass="'txt-r'"
+      :dropContentClass="'is-right dropContent-custom-class'"
+      :dropOnHover="false"
+      :animateDropBtn="{ value: true, target: '' }"
+      ref="dropdownMenuRef"
+    >
+      <template v-slot:button>
+        <button class="btn" @click="toggleDropdown">
+          <i class="fa-solid fa-ellipsis"></i>
+        </button>
+      </template>
+      <template v-slot:content>
+        <li class="dropdown-li">
+          <button @click="dropdownBtnClick('legenda')">
+            <i class="fa-solid fa-question"></i>
+            Legenda
+          </button>
+        </li>
+        <li class="dropdown-li">
+          <button @click="dropdownBtnClick('ricerca')">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Ricerca Prenotazioni
+          </button>
+        </li>
+      </template>
+    </SpakvueDropdownBtn>
+  * FINE ESEMPIO *
 -->

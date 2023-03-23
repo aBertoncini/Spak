@@ -93,13 +93,38 @@ button:not(:disabled) {
     border-color: rgba(tint-color($spak-btn-bg-color, 30%), 0.1);
     color: tint-color($spak-btn-txt-color, 20%);
   }
+
+  //^^^ variante secondo colore ^^^
+  &.color-2 {
+    background-color: $spak-btn-2-bg-color;
+    border-color: $spak-btn-2-border-color;
+    color: $spak-btn-2-txt-color;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $spak-btn-2-bg-active;
+      border-color: $spak-btn-2-border-active;
+      color: $spak-btn-2-font-active;
+    }
+    &:focus:not(:focus-visible),
+    &:focus:not(:active) {
+      outline: tint-color($spak-btn-2-bg-active, 60%) solid 0.2em;
+      //box-shadow: none;
+    }
+    &:disabled {
+      cursor: not-allowed;
+      background-color: rgba(tint-color($spak-btn-2-bg-color, 30%), 0.68);
+      border-color: rgba(tint-color($spak-btn-2-bg-color, 30%), 0.1);
+      color: tint-color($spak-btn-2-txt-color, 20%);
+    }
+  }
 }
 
 .btn-transparent {
   @extend .btn;
   cursor: pointer;
   background-color: transparent;
-  border: none;
+  border-color: transparent;
   color: inherit;
   border-radius: 0;
   transition: none;
@@ -110,7 +135,6 @@ button:not(:disabled) {
   &:active,
   &:focus {
     background-color: transparent;
-    border: none;
   }
   &:focus:not(:focus-visible),
   &:focus:not(:active) {
@@ -118,9 +142,8 @@ button:not(:disabled) {
     box-shadow: none;
   }
   &:disabled {
-    cursor: default;
+    cursor: not-allowed;
     background-color: transparent;
-    border: none;
   }
   &-icon {
     @extend .btn-transparent;
@@ -136,19 +159,17 @@ button:not(:disabled) {
   color: $spak-btn-close-txt-color;
 }
 
-$btn-ref-bg-color: $spak-btn-refresh-bg-color;
-$btn-ref-txt-color: $spak-btn-refresh-txt-color;
 .btn-refresh {
-  background-color: $btn-ref-bg-color;
+  background-color: $spak-btn-refresh-bg-color;
   border: none;
-  color: $btn-ref-txt-color;
+  color: $spak-btn-refresh-txt-color;
   margin: 0;
   padding: 0;
   font-size: 1.3em;
   &:hover,
   &:active,
   &:focus {
-    color: shade-color($btn-ref-txt-color, 20%);
+    color: shade-color($spak-btn-refresh-txt-color, 20%);
   }
 }
 
@@ -652,7 +673,7 @@ $form-check-border: $spak-form-check-border-color;
       min-width: none;
       visibility: hidden;
       transition: width 300ms ease-in-out, visibility 300ms ease-in-out,
-        border-radius 300ms ease;
+        border-radius 300ms ease 0ms;
       &.--active-el {
         width: min-content;
         visibility: visible;
@@ -667,8 +688,16 @@ $form-check-border: $spak-form-check-border-color;
       & ~ .control.--animate-btn {
         //-- non active -- btn is right
         button {
-          transition-delay: 300ms;
+          //transition: border-radius 300ms ease 300ms;
+          //animation: radiusChange 300ms;
+          //animation-delay: 300ms;
           border-radius: $spak-btn-border-radius;
+
+          /* @keyframes radiusChange {
+            to {
+              border-radius: $spak-btn-border-radius;
+            }
+          } */
         }
       }
     }

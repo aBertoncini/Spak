@@ -313,51 +313,77 @@ $table-border-color: $spak-table-border-color;
   }
 }
 
-.table-spak {
+.spak.table {
   //background-color: $table-bg;
-  color: $table-font;
-  border-color: $table-border-color;
+  //color: $table-font;
+  & td,
+  & th {
+    border-color: $spak-table-border-color;
+  }
+
   & .table-header {
-    background-color: $table-head-bg;
-    color: $table-head-font;
+    background-color: $spak-table-header-bg-color;
+    color: $spak-table-header-txt-color;
+    & th {
+      color: $spak-table-header-txt-color;
+    }
   }
   & tbody {
     & tr {
       & th {
-        background-color: $spak-table-th-bg;
+        //background-color: $spak-table-th-bg;
         color: $spak-table-th-txt;
       }
       &:hover,
+      &:not(.is-selected):hover, //-- override bulma
       &:active,
       &:focus {
-        & th {
+        background-color: $spak-table-hover-bg;
+        /* & th {
           background-color: $spak-table-th-bg;
           color: $spak-table-th-txt;
-        }
+        } */
       }
     }
+  }
+  //-- override bulma striped
+  &.is-striped tbody tr:not(.is-selected):nth-child(2n) {
+    background-color: $spak-table-hover-bg;
+  }
+  &.is-hoverable.is-striped tbody tr:not(.is-selected):hover {
+    background-color: $spak-table-hover-bg;
   }
 }
 
 // !!! TEXT !!!
 
-.subtitle {
-  font-size: $spak-subtitle-fs;
-  font-weight: $spak-subtitle-fw;
+.spak {
+  &-subtitle {
+    font-size: $spak-subtitle-fs;
+    font-weight: $spak-subtitle-fw;
+    color: $spak-subtitle-color;
+  }
+  &-title {
+    color: $spak-title-color;
+    font-size: $spak-title-fs;
+    font-weight: $spak-title-fw;
+    line-height: $spak-title-line-height;
+    padding: $spak-title-padding-y $spak-title-padding-y;
+  }
 }
 
 .txt {
   &-c,
   &-center {
-    text-align: center;
+    text-align: center !important;
   }
   &-r,
   &-end {
-    text-align: right;
+    text-align: right !important;
   }
   &-l,
   &-start {
-    text-align: left;
+    text-align: left !important;
   }
   &-big {
     font-size: 1.5em;
@@ -365,6 +391,12 @@ $table-border-color: $spak-table-border-color;
       @extend .txt-big;
       @extend .txt-c;
     }
+  }
+  &.align-bottom {
+    vertical-align: bottom !important;
+  }
+  &.align-top {
+    vertical-align: top;
   }
   &-s {
     font-size: 0.8em;
@@ -378,6 +410,9 @@ $table-border-color: $spak-table-border-color;
       @extend .txt-label;
       @extend .txt-s;
     }
+  }
+  &-strong {
+    font-weight: bold;
   }
   &-upper {
     text-transform: uppercase;

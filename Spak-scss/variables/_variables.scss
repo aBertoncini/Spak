@@ -46,16 +46,6 @@ $root-map: (
   @return var(--#{$name});
 }
 
-/*
-//*** body variables
-:root {
-  --color-text: $text-light-2;
-  --color-background: $white;
-  --body-min-height: 0vh;
-  --body-font-size: 16px;
-  --body-line-height: 1.6;
-} */
-
 //*** Spak variables
 //--btn
 $spak-btn-bg-color: $primary;
@@ -90,12 +80,15 @@ $spak-btn-2-focus-box-shadow: 0 0 0 0.25rem rgba($spak-btn-2-bg-color, 0.5);
 //--btn-close
 $spak-btn-close-bg-color: transparent;
 $spak-btn-close-txt-color: $primary-text;
+
 //--btn-refresh
 $spak-btn-refresh-bg-color: transparent;
 $spak-btn-refresh-txt-color: $primary-text;
+
 //--btn-checked
 $spak-btn-check-bg-color: $primary;
 $spak-btn-check-txt-color: $white;
+
 //--box
 $spak-box-bg: $white;
 $spak-box-color: inherit;
@@ -104,13 +97,29 @@ $spak-box-padding: 1.25rem;
 
 //--form
 $spak-form-input-padding: calc(0.5em - 1px) calc(0.75em - 1px);
+$spak-placeholder-color: rgba(#000, 0.75);
+$spak-form-icon-input-icon-color: $primary-text;
+
+//-- BULMA FORM OVERRIDE !!!
+$spak-bulma-form-focus-border-color: rgba(darken($primary, 10%), 0.4);
+$spak-bulma-form-focus-box-shadow-color: rgba(lighten($primary, 5%), 0.75);
+$spak-bulma-form-focus-box-shadow-input: none; //inset 0 0.0625em 0.125em $spak-bulma-form-focus-box-shadow-color;
+$spak-bulma-form-focus-box-shadow-is-active-input: 0 0 0 0.125em
+  $spak-bulma-form-focus-box-shadow-color;
+$spak-bulma-form-focus-box-shadow-textarea: none; //inset 0 0.0625em 0.125em $spak-bulma-form-focus-box-shadow-color;
+$spak-bulma-form-field-border-radius: 0.375rem;
+$spak-bulma-form-bg-color: $white-soft;
+$spak-bulma-form-color: $black-mute;
+$spak-bulma-form-border-color: #dbdbdb;
 
 //--form-check-input
 $spak-form-check-bg-color: $secondary;
 $spak-form-check-border-color: $secondary;
+
 //--form-input-custom
 $spak-form-floating-bl-border-color: $primary-text;
 $spak-form-floating-bl-label-color: $primary-text;
+
 //--form-floating
 $spak-float-container-margin: auto; //1rem 0 0 0;
 $spak-float-field-color: inherit;
@@ -141,14 +150,17 @@ $spak-card-footer-bg-color: transparent;
 $spak-card-footer-txt-color: inherit;
 $spak-card-footer-border-color: #ededed;
 
-//-- checkbox
+//-- checkbox & radio
 $spak-check-bg: transparent;
 $spak-check-bg-checked: $primary-text;
 $spak-check-color: $white;
 $spak-check-border-color: $primary-text;
+$spak-radio-inset-color: $primary;
+$spak-radio-bg-checked: $white;
 
 //--links
 $spak-link-color: $primary-text;
+
 //--table
 $spak-table-bg-color: inherit;
 $spak-table-txt-color: inherit;
@@ -159,6 +171,7 @@ $spak-table-hover-bg: #00000013;
 $spak-table-hover-color: #212529;
 $spak-table-th-bg: inherit;
 $spak-table-th-txt: $secondary-text;
+
 //--text
 $spak-title-color: $primary-text;
 $spak-title-fs: 1.7rem;
@@ -169,16 +182,6 @@ $spak-title-line-height: 1.125;
 $spak-subtitle-color: $secondary-text;
 $spak-subtitle-fs: 0.8rem;
 $spak-subtitle-fw: 400;
-
-//!!! BULMA OVERRIDE !!!
-$spak-bulma-form-focus-border-color: rgba(darken($primary, 10%), 0.4);
-$spak-bulma-form-focus-box-shadow-color: rgba(lighten($primary, 5%), 0.75);
-$spak-bulma-form-focus-box-shadow-input: none; //inset 0 0.0625em 0.125em $spak-bulma-form-focus-box-shadow-color;
-$spak-bulma-form-focus-box-shadow-is-active-input: 0 0 0 0.125em
-  $spak-bulma-form-focus-box-shadow-color;
-$spak-bulma-form-focus-box-shadow-textarea: none; //inset 0 0.0625em 0.125em $spak-bulma-form-focus-box-shadow-color;
-$spak-bulma-form-field-border-radius: 0.375rem;
-$spak-bulma-form-placeholder-color: rgba(darken($primary-text, 10%), 0.45);
 
 //!!! SPAK COMPONENTS VARS !!!
 $spak-prefix: --spak-comp-;

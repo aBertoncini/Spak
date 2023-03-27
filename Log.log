@@ -12,3 +12,6 @@
                         -> modifiche a offcanvas + dropdown
                     - form.scss
                         -> modifiche minori
+2.1.5 - 27/03/2023  - modifiche icon-input con relative variabili
+                    - aggiunto spak-vue login
+                    

@@ -174,21 +174,6 @@ button:not(:disabled) {
   }
 }
 
-$btn-check-bg: $spak-btn-check-bg-color;
-$btn-check-txt: $spak-btn-check-txt-color;
-.btn-check {
-  &:checked + .btn {
-    background-color: darken($btn-check-bg, 20%);
-    color: $btn-check-txt;
-    border: 0;
-  }
-  &:active + .btn {
-    background-color: lighten($spak-btn-bg-color, 10%);
-    color: $spak-btn-txt-color;
-    border: 0;
-  }
-}
-
 //-- btn icon animation
 .btn-icon {
   & div {
@@ -205,9 +190,6 @@ $btn-check-txt: $spak-btn-check-txt-color;
 
 // !!! INPUTS !!!
 //-- bootstrap inputs
-$bl-border-color: $spak-form-floating-bl-border-color;
-$bl-label-color: $spak-form-floating-bl-label-color;
-
 .form-floating.bottom-line {
   // bottom line input
   width: auto;
@@ -230,32 +212,17 @@ $bl-label-color: $spak-form-floating-bl-label-color;
       box-shadow: none;
       border-width: 0.2em;
       border-radius: 8px;
-      border-color: $bl-border-color;
+      border-color: $spak-form-floating-bl-border-color;
       transition: 0.2s ease-in-out;
       & + label {
-        color: $bl-label-color;
+        color: $spak-form-floating-bl-label-color;
         transition: 0.2s ease-in-out;
       }
     }
     &:disabled {
-      color: tint-color($bl-border-color, 35%);
+      color: tint-color($spak-form-floating-bl-border-color, 35%);
       background-color: transparent;
     }
-  }
-}
-
-//-- bootstrap checkbox btn
-$form-check-bg: $spak-form-check-bg-color;
-$form-check-border: $spak-form-check-border-color;
-.form-check-input {
-  &:checked {
-    background-color: $form-check-bg;
-    border-color: $form-check-border;
-  }
-  &:focus {
-    border-color: tint-color($form-check-border, 50%);
-    outline: 0;
-    box-shadow: 0 0 0 0.25rem tint-color($form-check-border, 50%);
   }
 }
 
@@ -263,7 +230,8 @@ $form-check-border: $spak-form-check-border-color;
   position: relative;
   box-sizing: border-box;
   clear: both;
-  & .form-control {
+  & .form-control,
+  & .spak.input {
     &.icon {
       &-left {
         padding-left: 2.5em;
@@ -273,7 +241,9 @@ $form-check-border: $spak-form-check-border-color;
       }
     }
   }
-  & .form-control ~ .icon {
+  & .form-control ~ .icon,
+  & .spak.input ~ .icon {
+    color: $spak-form-icon-input-icon-color;
     height: 2.5em;
     pointer-events: none;
     position: absolute;
@@ -289,18 +259,45 @@ $form-check-border: $spak-form-check-border-color;
   }
 }
 
+.btn-check {
+  &:checked + .btn {
+    background-color: darken($spak-btn-check-bg-color, 20%);
+    color: $spak-btn-check-txt-color;
+    border: 0;
+  }
+  &:active + .btn {
+    background-color: lighten($spak-btn-bg-color, 10%);
+    color: $spak-btn-txt-color;
+    border: 0;
+  }
+}
+
+//-- bootstrap checkbox btn
+.form-check-input {
+  &:checked {
+    background-color: $spak-form-check-bg-color;
+    border-color: $spak-form-check-border-color;
+  }
+  &:focus {
+    border-color: tint-color($spak-form-check-border-color, 50%);
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem tint-color($spak-form-check-border-color, 50%);
+  }
+}
+
 // !!! FORM !!!
 
 //*** checkbox & radio
-.spak-check {
+.spak-check,
+.spak-radio {
   display: inline-flex;
   align-content: center;
+  align-items: center;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   gap: 0.5em;
-  //-- checkbox style
-  input[type="checkbox"] {
+  input {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -311,7 +308,6 @@ $form-check-border: $spak-form-check-border-color;
     width: 1.15em;
     height: 1.15em;
     border: 0.15em solid rgba($spak-check-border-color, 0.65);
-    border-radius: 0.15em;
     transform: translateY(-0.075em);
     display: grid;
     place-content: center;
@@ -322,21 +318,8 @@ $form-check-border: $spak-form-check-border-color;
       transform: scale(0);
       transition: 120ms transform ease-in-out;
       background-color: CanvasText;
-      //-- check symbol + color
-      box-shadow: inset 1em 1em $spak-check-color;
-      -webkit-clip-path: polygon(
-        14% 44%,
-        0 65%,
-        50% 100%,
-        100% 16%,
-        80% 0%,
-        43% 62%
-      );
-      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-      transform-origin: bottom left;
     }
     &:checked {
-      background-color: $spak-check-bg-checked;
       &::before {
         transform: scale(1);
       }
@@ -344,6 +327,9 @@ $form-check-border: $spak-form-check-border-color;
     &:focus {
       outline: max(2px, 0.15em) solid rgba($spak-check-border-color, 0.5);
       //outline-offset: max(1px, 0.05em);
+    }
+    &:focus-within {
+      color: $spak-check-color;
     }
     &:disabled {
       cursor: not-allowed;
@@ -354,9 +340,42 @@ $form-check-border: $spak-form-check-border-color;
         20%
       );
     }
+    //-- checkbox style
+    &[type="checkbox"] {
+      border-radius: 0.15em;
+      &:checked {
+        background-color: $spak-check-bg-checked;
+      }
+      &::before {
+        //-- check symbol + color
+        box-shadow: inset 1em 1em $spak-check-color;
+        -webkit-clip-path: polygon(
+          14% 44%,
+          0 65%,
+          50% 100%,
+          100% 16%,
+          80% 0%,
+          43% 62%
+        );
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        transform-origin: bottom left;
+      }
+    }
+    //-- radio style
+    &[type="radio"] {
+      border-radius: 50%;
+      &:checked {
+        background-color: $spak-radio-bg-checked;
+      }
+      &::before {
+        border-radius: 50%;
+        box-shadow: inset 1em 1em $spak-radio-inset-color;
+      }
+    }
   }
-  + .spak-check {
-    margin-top: 1em;
+  + .spak-check,
+  + .spak-radio {
+    margin-top: 0.5em;
   }
 }
 
@@ -628,8 +647,20 @@ $form-check-border: $spak-form-check-border-color;
 .spak {
   &.border-colored {
     border-color: $spak-bulma-form-focus-border-color;
+    &::-webkit-input-placeholder {
+      color: $spak-placeholder-color;
+    }
+    &::-moz-placeholder {
+      color: $spak-placeholder-color;
+    }
+    &:-ms-input-placeholder {
+      color: $spak-placeholder-color;
+    }
+    &::-ms-input-placeholder {
+      color: $spak-placeholder-color;
+    }
     &::placeholder {
-      color: $spak-bulma-form-placeholder-color;
+      color: $spak-placeholder-color;
     }
     &:hover,
     &:active,
@@ -642,6 +673,28 @@ $form-check-border: $spak-form-check-border-color;
         border-color: $spak-bulma-form-focus-border-color;
       }
     }
+  }
+  &::-webkit-input-placeholder {
+    color: $spak-placeholder-color;
+  }
+  &::-moz-placeholder {
+    color: $spak-placeholder-color;
+  }
+  &:-ms-input-placeholder {
+    color: $spak-placeholder-color;
+  }
+  &::-ms-input-placeholder {
+    color: $spak-placeholder-color;
+  }
+  &::placeholder {
+    color: $spak-placeholder-color;
+  }
+  &.input,
+  &.select select,
+  &.textarea {
+    background-color: $spak-bulma-form-bg-color;
+    border-color: $spak-bulma-form-border-color;
+    color: $spak-bulma-form-color;
   }
   &.select select:focus,
   &.textarea:focus,
@@ -664,6 +717,16 @@ $form-check-border: $spak-form-check-border-color;
   &.field.has-addons {
     margin: 0;
   }
+  &.select select {
+    width: 100%;
+  }
+  &.select:not(.is-multiple):not(.is-loading)::after {
+    //border-color: $spak-bulma-form-focus-border-color;
+  }
+}
+.container-select-label-top {
+  display: flex;
+  flex-direction: column;
 }
 
 .spak.field.has-addons {
@@ -676,6 +739,8 @@ $form-check-border: $spak-form-check-border-color;
       transition: width 300ms ease-in-out, visibility 300ms ease-in-out,
         border-radius 300ms ease 0ms;
       &.--active-el {
+        width: -webkit-min-content;
+        width: -moz-min-content;
         width: min-content;
         visibility: visible;
         & ~ .control.--animate-btn {

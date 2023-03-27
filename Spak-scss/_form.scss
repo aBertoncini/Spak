@@ -84,8 +84,8 @@ button:not(:disabled) {
   }
   &:focus:not(:focus-visible),
   &:focus:not(:active) {
-    outline: tint-color($spak-btn-bg-active, 60%) solid 0.2em;
-    //box-shadow: none;
+    outline: tint-color($spak-btn-outline-color, 60%) solid 0.2em;
+    box-shadow: $spak-btn-focus-box-shadow;
   }
   &:disabled {
     cursor: not-allowed;
@@ -99,6 +99,7 @@ button:not(:disabled) {
     background-color: $spak-btn-2-bg-color;
     border-color: $spak-btn-2-border-color;
     color: $spak-btn-2-txt-color;
+    box-shadow: $spak-btn-2-box-shadow;
     &:hover,
     &:active,
     &:focus {
@@ -108,8 +109,8 @@ button:not(:disabled) {
     }
     &:focus:not(:focus-visible),
     &:focus:not(:active) {
-      outline: tint-color($spak-btn-2-bg-active, 60%) solid 0.2em;
-      //box-shadow: none;
+      outline: tint-color($spak-btn-2-outline-color, 60%) solid 0.2em;
+      box-shadow: $spak-btn-2-focus-box-shadow;
     }
     &:disabled {
       cursor: not-allowed;

@@ -1,7 +1,14 @@
 1.0 - iniziato progetto
 1.1 - apportate modifiche crescenti
-2.0 - 01/03/2023 - Spostato progetto su GitHub
-2.1 - 06/03/2023 - Impostato progetto per utilizzo da singolo file
-2.1.1 - 06/03/2023 - Modifiche minori e fix readme
-2.1.2 - 06/03/2023 - Spostato import packages in variables
-2.1.3 - 07/03/2023 - Aggiunto variabili spak btn in variables
+2.0 - 01/03/2023    - Spostato progetto su GitHub
+2.1 - 06/03/2023    - Impostato progetto per utilizzo da singolo file
+2.1.1 - 06/03/2023  - Modifiche minori e fix readme
+2.1.2 - 06/03/2023  - Spostato import packages in variables
+2.1.3 - 07/03/2023  - Aggiunto variabili spak btn in variables
+2.1.4 - 23/03/2023  - variables.scss 
+                        -> rimosso variabili inutili + creazione var css
+                        -> aggiunto var css per componenti spak-vue
+                    - Spak-vue
+                        -> modifiche a offcanvas + dropdown
+                    - form.scss
+                        -> modifiche minori

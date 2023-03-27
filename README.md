@@ -1,5 +1,5 @@
 # Spak 
-## V.2.1.3 del 23/03/2023
+## V.2.1.4 del 23/03/2023
 Repository di regole scss e componenti Vue da riutilizzare.
 Questa guida si riferisce a progetti Vue, ma è possibile utilizzare Spak-scss anche per altri progeti poichè è una libreria css.
 

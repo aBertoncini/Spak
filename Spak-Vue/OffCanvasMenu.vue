@@ -1,5 +1,6 @@
 <script setup>
-//import { ref, onMounted } from "vue";
+import { ref } from "vue";
+import { onClickOutside } from "@vueuse/core";
 
 const props = defineProps({
   rightEntrance: Boolean, //true, false
@@ -19,6 +20,10 @@ function close() {
   isShow.value = false;
   emit("after-close");
 }
+
+onClickOutside(offCanvasMenu, () => {
+  close();
+});
 
 const enterClass = ref(
   `animate__animated ${

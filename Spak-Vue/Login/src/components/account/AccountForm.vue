@@ -4,7 +4,7 @@
   <div class="card">
     <div class="card-header">
       <img
-        src="@/assets/account/img/logo-pollini-autodemolizioni.png"
+        src="@/assets/account/img/logo.png"
         alt="POLLINI"
       />
     </div>

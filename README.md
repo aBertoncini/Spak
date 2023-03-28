@@ -60,4 +60,4 @@ Alcuni componenti necessitano di una libreria esterna, ad esempio.
 - **ReadJSON**: componente che legge i file json e li salva all'interno di una variabile da un input.
 - **FormList**: lista di elementi input *(usato per la gestione del database)*.
 - **DropdownBtn**: Componente per la creazione di un pulsante dropdown, customizzabile e con animazione annessa.
-  
+- **Login**: Insieme di componenti/.js per la creazione di una pagina di login.

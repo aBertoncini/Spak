@@ -458,6 +458,7 @@ button:not(:disabled) {
       &.bottom-line {
         border-width: 0 0 0.125rem 0;
         border-radius: 0;
+        box-shadow: none;
       }
       &::-webkit-input-placeholder {
         color: transparent;
@@ -721,7 +722,7 @@ button:not(:disabled) {
     width: 100%;
   }
   &.select:not(.is-multiple):not(.is-loading)::after {
-    //border-color: $spak-bulma-form-focus-border-color;
+    border-color: $spak-bulma-form-focus-border-color;
   }
 }
 .container-select-label-top {

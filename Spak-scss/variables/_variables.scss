@@ -108,7 +108,7 @@ $spak-bulma-form-focus-box-shadow-is-active-input: 0 0 0 0.125em
   $spak-bulma-form-focus-box-shadow-color;
 $spak-bulma-form-focus-box-shadow-textarea: none; //inset 0 0.0625em 0.125em $spak-bulma-form-focus-box-shadow-color;
 $spak-bulma-form-field-border-radius: 0.375rem;
-$spak-bulma-form-bg-color: $white-soft;
+$spak-bulma-form-bg-color: $white;
 $spak-bulma-form-color: $black-mute;
 $spak-bulma-form-border-color: #dbdbdb;
 
@@ -190,6 +190,10 @@ $spak-comp: (
     bg-color: rgba($secondary, 0.9),
     color: lighten($primary-text, 20%),
     background-bg-color: #93939380,
+  ),
+  tooltip: (
+    bg-color: rgba($secondary, 0.95),
+    color: $white-soft,
   ),
 );
 

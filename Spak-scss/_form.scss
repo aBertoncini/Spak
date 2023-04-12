@@ -380,6 +380,14 @@ button:not(:disabled) {
 }
 
 //*** form floating label ***
+/* 
+* usage
+<div class="floating-label-container">
+  <input class="float-field --t1">
+  <label></label>
+</div>
+*/
+
 .floating-label-container {
   position: relative;
   margin: $spak-float-container-margin;

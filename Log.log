@@ -15,4 +15,7 @@
 2.1.5 - 27/03/2023  - modifiche icon-input con relative variabili
                     - aggiunto spak-vue login
                     - messo funzioni colore in functions.scss
+2.1.6 - 12/04/2023  - aggiunta spak-vue Tooltip
+                    - variables.scss: modifiche relative a Tooltip
+                    - form.scss: modifiche minori
                     

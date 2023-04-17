@@ -5,7 +5,6 @@
     <div class="card-header">
       <img
         src="@/assets/account/img/logo.png"
-        alt="POLLINI"
       />
     </div>
     <div class="card-content">

@@ -195,6 +195,10 @@ $spak-comp: (
     bg-color: rgba($secondary, 0.95),
     color: $white-soft,
   ),
+  cursor: (
+    color1: $primary,
+    color2: $secondary,
+  ),
 );
 
 //*** creation of css variables for vue components

@@ -286,8 +286,8 @@ function onMouseMove(e) {
 </template>
 
 <style scoped lang="scss">
-$cursor-color: var(--color-secondary-inverse);
-$cursor2-color: var(--color-primary-inverse);
+$cursor-color: var(--spak-comp-cursor-color1);
+$cursor2-color: var(--spak-comp-cursor-color2);
 
 @media only screen and (min-width: 1025px) {
   .cursor {
@@ -335,10 +335,4 @@ $cursor2-color: var(--color-primary-inverse);
     display: none;
   }
 }
-</style>
-
-<style>
-/* html {
-  cursor: none;
-} */
 </style>

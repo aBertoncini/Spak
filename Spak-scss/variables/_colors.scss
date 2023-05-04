@@ -22,6 +22,28 @@ $text-dark-1: $white;
 $text-dark-2: #ebebeba3;
 $error-color: #fd5f5fd0;
 
+$spak-color-prefix: --spak-color-;
+$spak-color: (
+  primary: #83bff1,
+  primary-text: #488dc5,
+  secondary: #1c3144,
+  secondary-text: #0c1b27,
+  navbar: #3333332e,
+  navbar-shrink: #33333373,
+  "white": #fff,
+  white-soft: #f8f8f8,
+  white-mute: #f2f2f2,
+  "black": #181818,
+  black-soft: #222222,
+  black-mute: #282828,
+  "indigo": #2c3e50,
+  text-light-1: $indigo,
+  text-light-2: #3c3c3ca8,
+  text-dark-1: $white,
+  text-dark-2: #ebebeba3,
+  error-color: #fd5f5fd0,
+);
+
 //!!! COLOR FUNCTIONS !!!
 // Return opaque color
 // opaque(#fff, rgba(0, 0, 0, .5)) => #808080
@@ -46,4 +68,20 @@ $error-color: #fd5f5fd0;
     shade-color($color, $weight),
     tint-color($color, -$weight)
   );
+}
+
+//!!! CSS variables !!!
+:root {
+  //-- each item in spak-color map
+  //-- ex. --spak-color-primary
+  @each $name, $root in $spak-color {
+    //-- second loop for submaps
+    @if type-of($root) == "map" {
+      @each $subname, $subroot in $root {
+        #{$spak-color-prefix}#{$name}-#{$subname}: $subroot;
+      }
+    } @else {
+      #{$spak-color-prefix}#{$name}: $root;
+    }
+  }
 }

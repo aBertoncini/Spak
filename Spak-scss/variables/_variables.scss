@@ -184,6 +184,10 @@ $spak-subtitle-fs: 0.8rem;
 $spak-subtitle-fw: 400;
 
 //!!! SPAK COMPONENTS VARS !!!
+
+//-- sidebar component
+$spak-comp-sidebar-container-padding-x: 1.35em;
+
 $spak-prefix: --spak-comp-;
 $spak-comp: (
   offcanvas: (
@@ -198,6 +202,10 @@ $spak-comp: (
   cursor: (
     color1: $primary,
     color2: $secondary,
+  ),
+  sidebar: (
+    bg-color: $white,
+    padding-x: 1.35em,
   ),
 );
 

@@ -18,4 +18,5 @@
 2.1.6 - 12/04/2023  - aggiunta spak-vue Tooltip
                     - variables.scss: modifiche relative a Tooltip
                     - form.scss: modifiche minori
+2.1.7 - 04/05/2023  - creazione variabili css in _colors.scss
                     

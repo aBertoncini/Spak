@@ -74,3 +74,5 @@ Alcuni componenti necessitano di una libreria esterna, ad esempio.
 - **DropdownBtn**: Componente per la creazione di un pulsante dropdown, customizzabile e con animazione annessa.
 - **Login**: Insieme di componenti/.js per la creazione di una pagina di login.
 - **Tooltip**: Tooltip (anche per più elementi in contemporanea, cambiando target)
+- **SideBar**: componente contenitore per pagine con sidebar
+- **BreadCrumb**: creazione automatica breadcrumb in base alla route

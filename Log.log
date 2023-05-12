@@ -19,4 +19,9 @@
                     - variables.scss: modifiche relative a Tooltip
                     - form.scss: modifiche minori
 2.1.7 - 04/05/2023  - creazione variabili css in _colors.scss
+2.1.8 - 11/05/2023  - aggiunta componente BreadCrumb
+                    - modifiche minori custom cursor
+                    - aggiunta componente SideBar
+                    - creazione nuovo foglio di stile per classi componenti
+                    - modifiche minori _colors e _variables
                     

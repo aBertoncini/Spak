@@ -183,6 +183,10 @@ $spak-subtitle-color: $secondary-text;
 $spak-subtitle-fs: 0.8rem;
 $spak-subtitle-fw: 400;
 
+//--navbar
+$navbar: #3333332e;
+$navbar-shrink: #33333373;
+
 //!!! SPAK COMPONENTS VARS !!!
 
 //-- sidebar component
@@ -200,8 +204,8 @@ $spak-comp: (
     color: $white-soft,
   ),
   cursor: (
-    color1: $primary,
-    color2: $secondary,
+    color1: rgba($secondary, 0.65),
+    color2: rgba($primary, 0.55),
   ),
   sidebar: (
     bg-color: $white,

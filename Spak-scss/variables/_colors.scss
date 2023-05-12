@@ -6,9 +6,6 @@ $primary-text: #488dc5; //--btn txt
 $secondary: #1c3144; //--secondary elements bg
 $secondary-text: #0c1b27; //--secondary elements txt //ex.card table
 
-$navbar: #3333332e;
-$navbar-shrink: #33333373;
-
 $white: #fff;
 $white-soft: #f8f8f8;
 $white-mute: #f2f2f2;
@@ -24,24 +21,22 @@ $error-color: #fd5f5fd0;
 
 $spak-color-prefix: --spak-color-;
 $spak-color: (
-  primary: #83bff1,
-  primary-text: #488dc5,
-  secondary: #1c3144,
-  secondary-text: #0c1b27,
-  navbar: #3333332e,
-  navbar-shrink: #33333373,
-  "white": #fff,
-  white-soft: #f8f8f8,
-  white-mute: #f2f2f2,
-  "black": #181818,
-  black-soft: #222222,
-  black-mute: #282828,
-  "indigo": #2c3e50,
+  primary: $primary,
+  primary-text: $primary-text,
+  secondary: $secondary,
+  secondary-text: $secondary-text,
+  "white": $white,
+  white-soft: $white-soft,
+  white-mute: $white-mute,
+  "black": $black,
+  black-soft: $black-soft,
+  black-mute: $black-mute,
+  "indigo": $indigo,
   text-light-1: $indigo,
-  text-light-2: #3c3c3ca8,
+  text-light-2: $text-light-2,
   text-dark-1: $white,
-  text-dark-2: #ebebeba3,
-  error-color: #fd5f5fd0,
+  text-dark-2: $text-dark-2,
+  error-color: $error-color,
 );
 
 //!!! COLOR FUNCTIONS !!!

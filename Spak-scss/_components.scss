@@ -1,0 +1,47 @@
+//*** CLASSI PER COMPONENTI ***
+
+//!!! SIDEBAR PAGE !!!
+.sidebar-page {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+}
+.sidebar-content {
+  display: flex;
+  flex-flow: column wrap;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 100vh;
+  background-color: var(--spak-comp-sidebar-bg-color);
+  overflow: auto;
+  padding: 0.3em 1em;
+}
+/* .sidebar-page-content {
+  padding: 0.55em;
+} */
+.sidebar-item-container {
+  display: flex;
+  flex-direction: column;
+  padding: $spak-comp-sidebar-container-padding-x 0;
+  .sidebar-item {
+    font-size: 0.9em;
+    margin: 0em;
+    padding: 0.25em 0 0.25em 0.6em;
+    border-radius: 8px;
+    font-weight: bolder;
+    color: $black-mute;
+    cursor: pointer;
+    transition: all 0.25s;
+    &:hover {
+      color: $primary-text;
+      transform: translateX(8px);
+    }
+  }
+  .sidebar-separator {
+    margin-bottom: 0.35em;
+    &:not(:first-child) {
+      margin-top: $spak-comp-sidebar-container-padding-x;
+    }
+  }
+}

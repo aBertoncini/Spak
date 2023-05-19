@@ -22,6 +22,14 @@ export default class CursorService {
     for (var i = 0; i < el.length; i++)
       el[i].addEventListener(eventName, handlerFunction);
   }
+  initMouseEnterLeaveEvents(elClass) {
+    this.attachEvents(elClass, "mouseenter", (e) => {
+      this.onMouseEnter();
+    });
+    this.attachEvents(elClass, "mouseleave", (e) => {
+      this.onMouseLeave();
+    });
+  }
 }
 
 /**** ISTRUZIONI COMPONENTE CURSOR ***
@@ -33,6 +41,11 @@ export default class CursorService {
   cursorServ.attachEvents(".link-ref", "mouseleave", (e) => {
     cursorServ.onMouseLeave();
   });
+
+  * initMouseEnterLeaveEvents come attachEvents ma per enter e leave
+  * esempio:
+  new CursorService().initMouseEnterLeaveEvents(".box-link");
+
 
 
 */

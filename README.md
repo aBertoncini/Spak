@@ -1,6 +1,6 @@
 # Spak
 
-## V.2.1.6 del 12/04/2023
+## V.2.1.9 del 19/05/2023
 
 Repository di regole scss e componenti Vue da riutilizzare.
 Questa guida si riferisce a progetti Vue, ma è possibile utilizzare Spak-scss anche per altri progeti poichè è una libreria css.
@@ -72,7 +72,6 @@ Alcuni componenti necessitano di una libreria esterna, ad esempio.
 - **ReadJSON**: componente che legge i file json e li salva all'interno di una variabile da un input.
 - **FormList**: lista di elementi input _(usato per la gestione del database)_.
 - **DropdownBtn**: Componente per la creazione di un pulsante dropdown, customizzabile e con animazione annessa.
-- **Login**: Insieme di componenti/.js per la creazione di una pagina di login.
 - **Tooltip**: Tooltip (anche per più elementi in contemporanea, cambiando target)
 - **SideBar**: componente contenitore per pagine con sidebar
 - **BreadCrumb**: creazione automatica breadcrumb in base alla route

@@ -1,6 +1,6 @@
 <script setup>
 //import { ref } from "vue"; <!---- da commentare in nuxt
-//import { onClickOutside } from "@vueuse/core"; <!---- da commentare in nuxt
+import { onClickOutside } from "@vueuse/core";
 import anime from "animejs/lib/anime.es";
 
 const props = defineProps({

@@ -34,6 +34,7 @@
     }
   }
 }
+
 /* 
   * usage of media queries
   .class{
@@ -41,3 +42,32 @@
       [attributes]
     }
   }*/
+
+.display-mobile {
+  &-up {
+    @include breakpoint("mobile") {
+      display: none !important;
+    }
+  }
+  &-down {
+    @include breakpoint("mobile-up") {
+      display: none !important;
+    }
+  }
+}
+
+.mobile-col {
+  @include breakpoint(mobile) {
+    display: flex;
+    flex-flow: column;
+  }
+}
+
+/* .display-none {
+  display: none;
+  &-mobile {
+    @include breakpoint(mobile) {
+      display: none;
+    }
+  }
+} */

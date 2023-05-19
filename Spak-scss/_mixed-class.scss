@@ -230,23 +230,6 @@ $card-footer-border-color: $spak-card-footer-border-color;
   width: 100%;
 }
 
-// !!! MEDIA QUERIES !!!
-.mobile-col {
-  @include breakpoint(mobile) {
-    display: flex;
-    flex-flow: column;
-  }
-}
-
-.display-none {
-  display: none;
-  &-mobile {
-    @include breakpoint(mobile) {
-      display: none;
-    }
-  }
-}
-
 // !!! POSITION !!!
 .sticky-top {
   position: fixed;

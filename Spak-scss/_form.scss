@@ -1,40 +1,4 @@
 // !!! BUTTONS !!!
-
-.bulma-btn {
-  cursor: pointer;
-  justify-content: center;
-  padding-bottom: calc(0.5em - 1px);
-  padding-left: 1em;
-  padding-right: 1em;
-  padding-top: calc(0.5em - 1px);
-  text-align: center;
-  white-space: nowrap;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  align-items: center;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  box-shadow: none;
-  display: inline-flex;
-  font-size: 1rem;
-  height: 2.5em;
-  justify-content: flex-start;
-  line-height: 1.5;
-  padding-bottom: calc(0.5em - 1px);
-  padding-left: calc(0.75em - 1px);
-  padding-right: calc(0.75em - 1px);
-  padding-top: calc(0.5em - 1px);
-  position: relative;
-  vertical-align: top;
-  margin: 0;
-}
-
 .bs-btn {
   margin: 0;
   text-transform: none;
@@ -68,7 +32,6 @@ button:not(:disabled) {
 
 .btn {
   @extend .bs-btn;
-  //@extend .bulma-btn;
   cursor: pointer;
   background-color: $spak-btn-bg-color; //colore di sfondo
   border: 0.125em solid $spak-btn-border-color;
@@ -136,6 +99,8 @@ button:not(:disabled) {
   &:active,
   &:focus {
     background-color: transparent;
+    color: inherit;
+    border-color: transparent;
   }
   &:focus:not(:focus-visible),
   &:focus:not(:active) {
@@ -154,83 +119,71 @@ button:not(:disabled) {
   }
 }
 
-// X per chiudere modali
-.btn-close {
-  background-color: $spak-btn-close-bg-color;
-  color: $spak-btn-close-txt-color;
-}
-
-.btn-refresh {
-  background-color: $spak-btn-refresh-bg-color;
-  border: none;
-  color: $spak-btn-refresh-txt-color;
-  margin: 0;
-  padding: 0;
-  font-size: 1.3em;
-  &:hover,
-  &:active,
-  &:focus {
-    color: shade-color($spak-btn-refresh-txt-color, 20%);
-  }
-}
-
 //-- btn icon animation
 .btn-icon {
-  & div {
+  display: inline-block;
+  transform: rotate(0deg);
+  transition: 0.5s;
+  &.clicked {
     display: inline-block;
-    transform: rotateX(0deg);
+    transform: rotate(180deg);
     transition: 0.5s;
   }
-  &.clicked div {
+  & i {
     display: inline-block;
-    transform: rotateX(180deg);
+    transform: rotate(0deg);
     transition: 0.5s;
+    &.clicked {
+      display: inline-block;
+      transform: rotate(180deg);
+      transition: 0.5s;
+    }
   }
 }
+
+.btn-notification {
+  position: relative;
+  .icon-notification {
+    position: absolute;
+    height: 1em;
+    width: 1em;
+    border-radius: 50%;
+    background-color: $btn-notification-icon-color;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+
+    top: -0.5em;
+    right: -0.5em;
+    transition: all 0.3s;
+    opacity: 0;
+    &.notification-show {
+      transition: all 0.3s;
+      opacity: 1;
+      animation: notification-pulse 1.8s linear 0s infinite alternate;
+    }
+  }
+}
+
+/*
+^^^ UTILIZZO BTN NOTIFICA
+  <button class="btn btn-notification">
+    <span
+      class="icon-notification"
+      :class="{ 'notification-show': notifShow }"
+    >
+    </span>
+    <i class="fa-regular fa-bell"></i>
+  </button>
+  ^^^evento per notifica
+  <button @click="showNotifica()">notifica {{ notifShow }}</button> 
+*/
 
 // !!! INPUTS !!!
-//-- bootstrap inputs
-.form-floating.bottom-line {
-  // bottom line input
-  width: auto;
-  & input[type="number"] {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: textfield;
-  }
-  & input::-webkit-outer-spin-button,
-  & input::-webkit-inner-spin-button {
-    appearance: none;
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  & .form-control,
-  & .form-select {
-    border-style: none none solid none;
-    border-radius: 0;
-    &:focus {
-      box-shadow: none;
-      border-width: 0.2em;
-      border-radius: 8px;
-      border-color: $spak-form-floating-bl-border-color;
-      transition: 0.2s ease-in-out;
-      & + label {
-        color: $spak-form-floating-bl-label-color;
-        transition: 0.2s ease-in-out;
-      }
-    }
-    &:disabled {
-      color: tint-color($spak-form-floating-bl-border-color, 35%);
-      background-color: transparent;
-    }
-  }
-}
-
 .icon-input {
   position: relative;
   box-sizing: border-box;
   clear: both;
-  & .form-control,
+  //& .form-control,
   & .spak.input {
     &.icon {
       &-left {
@@ -241,7 +194,7 @@ button:not(:disabled) {
       }
     }
   }
-  & .form-control ~ .icon,
+  //& .form-control ~ .icon,
   & .spak.input ~ .icon {
     color: $spak-form-icon-input-icon-color;
     height: 2.5em;
@@ -256,32 +209,6 @@ button:not(:disabled) {
     &.is-right {
       right: 0;
     }
-  }
-}
-
-.btn-check {
-  &:checked + .btn {
-    background-color: darken($spak-btn-check-bg-color, 20%);
-    color: $spak-btn-check-txt-color;
-    border: 0;
-  }
-  &:active + .btn {
-    background-color: lighten($spak-btn-bg-color, 10%);
-    color: $spak-btn-txt-color;
-    border: 0;
-  }
-}
-
-//-- bootstrap checkbox btn
-.form-check-input {
-  &:checked {
-    background-color: $spak-form-check-bg-color;
-    border-color: $spak-form-check-border-color;
-  }
-  &:focus {
-    border-color: tint-color($spak-form-check-border-color, 50%);
-    outline: 0;
-    box-shadow: 0 0 0 0.25rem tint-color($spak-form-check-border-color, 50%);
   }
 }
 
@@ -379,6 +306,25 @@ button:not(:disabled) {
   }
 }
 
+//! radio only label
+.spak-radio-button {
+  input[type="radio"] {
+    display: none;
+    &:checked + label {
+      background-color: $spak-btn-bg-active;
+    }
+  }
+  label {
+    @extend .btn;
+    /* display: inline-block;
+    background-color: #d1d1d1;
+    padding: 4px 11px;
+    font-family: Arial;
+    font-size: 18px;
+    cursor: pointer; */
+  }
+}
+
 //*** form floating label ***
 /* 
 * usage
@@ -391,6 +337,7 @@ button:not(:disabled) {
 .floating-label-container {
   position: relative;
   margin: $spak-float-container-margin;
+  background-color: $spak-float-label-bg;
   //margin-top: add();
   input[type="number"] {
     appearance: none;
@@ -654,35 +601,6 @@ button:not(:disabled) {
 //!!! OVERRIDE BULMA !!!
 
 .spak {
-  &.border-colored {
-    border-color: $spak-bulma-form-focus-border-color;
-    &::-webkit-input-placeholder {
-      color: $spak-placeholder-color;
-    }
-    &::-moz-placeholder {
-      color: $spak-placeholder-color;
-    }
-    &:-ms-input-placeholder {
-      color: $spak-placeholder-color;
-    }
-    &::-ms-input-placeholder {
-      color: $spak-placeholder-color;
-    }
-    &::placeholder {
-      color: $spak-placeholder-color;
-    }
-    &:hover,
-    &:active,
-    &:focus,
-    & select {
-      border-color: $spak-bulma-form-focus-border-color;
-      &:hover,
-      &:active,
-      &:focus {
-        border-color: $spak-bulma-form-focus-border-color;
-      }
-    }
-  }
   &::-webkit-input-placeholder {
     color: $spak-placeholder-color;
   }
@@ -747,10 +665,9 @@ button:not(:disabled) {
       visibility: hidden;
       transition: width 300ms ease-in-out, visibility 300ms ease-in-out,
         border-radius 300ms ease 0ms;
+      //-- per focus quando cliccato -> transitionend su elemento .control.--animate-el
       &.--active-el {
-        width: -webkit-min-content;
-        width: -moz-min-content;
-        width: min-content;
+        width: 10em;
         visibility: visible;
         & ~ .control.--animate-btn {
           //-- active -- btn is right

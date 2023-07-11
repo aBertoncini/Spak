@@ -35,11 +35,33 @@
   -webkit-animation: 3s ease-in-out infinite anim_roll; //spinnerLoader;
 }
 
-[class*="spinner"] {
-  width: 4em;
-  height: 4em;
-  border-radius: 50%;
-  --bs-spinner-animation-speed: 1s;
+@-webkit-keyframes notification-pulse {
+  0% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.2, 1.2, 1.2);
+    transform: scale3d(1.2, 1.2, 1.2);
+  }
+  to {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
+@keyframes notification-pulse {
+  0% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.2, 1.2, 1.2);
+    transform: scale3d(1.2, 1.2, 1.2);
+  }
+  to {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
 }
 
 // !!! TRANSITION COMPONENT !!!

@@ -253,6 +253,11 @@ $card-footer-border-color: $spak-card-footer-border-color;
   z-index: 100;
 }
 
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
 // !!! EFFECTS !!!
 .parallax {
   position: relative;
@@ -384,6 +389,7 @@ $card-footer-border-color: $spak-card-footer-border-color;
   //* usage
   //* <hr class="hr-text" data-content="oppure" />
 
+  background-color: transparent;
   line-height: 1em;
   position: relative;
   outline: 0;
@@ -427,6 +433,6 @@ ul {
   }
 }
 
-hr {
+/* hr {
   background-color: transparent;
-}
+} */

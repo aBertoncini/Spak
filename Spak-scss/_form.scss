@@ -159,6 +159,7 @@ button:not(:disabled) {
     &.notification-show {
       transition: all 0.3s;
       opacity: 1;
+      -webkit-animation: notification-pulse 1.8s linear 0s infinite alternate;
       animation: notification-pulse 1.8s linear 0s infinite alternate;
     }
   }
@@ -369,10 +370,11 @@ button:not(:disabled) {
     font: inherit;
     line-height: 100%;
     &:focus,
-    &:active,
-    &:hover {
+    &:active {
+      transition: $spak-btn-transition; //? da cambiare in futuro
       border-color: $spak-float-border-color-focus;
-      box-shadow: 0;
+      box-shadow: $spak-bulma-form-focus-box-shadow-is-active-input;
+      //box-shadow: 0;
     }
     &::-webkit-input-placeholder {
       color: $spak-float-placeholder-color;
@@ -458,6 +460,38 @@ button:not(:disabled) {
         }
       }
     }
+  }
+}
+//^^^ SELCT CON FLOAT LABEL -> .spak.select.floating-label-container [...]
+/* 
+<div class="spak select floating-label-container">
+    <select >
+      <option >
+         option 
+      </option>
+    </select>
+    <label>label</label>
+  </div>
+*/
+.spak.select.floating-label-container {
+  position: relative;
+  select {
+    border: 0.125em solid $spak-float-border-color;
+    border-radius: 5px;
+    &:focus,
+    &:active {
+      border-color: $spak-float-border-color-focus;
+      box-shadow: 0;
+    }
+  }
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $spak-float-label-bg;
+    padding: $spak-float-padding-label-focus;
+    transform: $spak-float-label-transform;
+    color: $spak-float-label-color-active;
   }
 }
 /* .floating-label-field--s1 {
@@ -629,6 +663,7 @@ button:not(:disabled) {
   &.select select:active,
   &.textarea:active,
   &.input:active {
+    transition: $spak-btn-transition; //? da cambiare in futuro
     box-shadow: $spak-bulma-form-focus-box-shadow-is-active-input;
   }
   &.textarea {

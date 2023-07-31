@@ -373,7 +373,7 @@ button:not(:disabled) {
     &:active {
       transition: $spak-btn-transition; //? da cambiare in futuro
       border-color: $spak-float-border-color-focus;
-      box-shadow: $spak-bulma-form-focus-box-shadow-is-active-input;
+      box-shadow: 0 0 0 0.125em rgba(lighten($spak-float-border-color-focus, 5%), 0.75);
       //box-shadow: 0;
     }
     &::-webkit-input-placeholder {

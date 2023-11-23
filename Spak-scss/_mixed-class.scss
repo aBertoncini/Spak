@@ -3,12 +3,13 @@
   color: var(--root-color);
   background: var(--root-background-color);
 }
-@media (prefers-color-scheme: dark) {
+//todo da gestire
+/* @media (prefers-color-scheme: dark) {
   :root {
     color: var(--root-color-dark);
     background: var(--root-background-color-dark);
   }
-}
+} */
 body {
   min-height: var(--root-body-min-height);
   transition: color 0.5s, background-color 0.5s;
@@ -254,6 +255,7 @@ $card-footer-border-color: $spak-card-footer-border-color;
 }
 
 .sticky {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
 }
@@ -436,3 +438,35 @@ ul {
 /* hr {
   background-color: transparent;
 } */
+
+//!!! SWEETALERT BUTTON
+.swal-deny {
+  background-color: transparent;
+  color: $primary-text;
+  margin: 0.3em;
+  font-size: 0.8em;
+  padding: 0.3em;
+  border: none;
+  background-color: tint-color($primary, 80%);
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: tint-color($primary, 85%);
+    color: $primary-text;
+  }
+}
+
+.swal-cancel {
+  @extend .btn;
+  color: $primary-text;
+  background-color: tint-color($primary, 80%);
+  border-color: tint-color($primary, 80%);
+  margin-left: 0.8em;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: tint-color($primary, 85%);
+    border-color: tint-color($primary, 85%);
+    color: $primary-text;
+  }
+}

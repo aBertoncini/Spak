@@ -29,4 +29,6 @@
 2.1.10 - 11/07/2023 - aggiunto classe .btn-notification
 2.1.11 - 14/07/2023 - modificato .spak.input e .floating-label
                     - aggiunto .float-label in elemento select
+2.1.12 - 16/11/2023 - aggiunto cartella form per componenti del form
+                    - modifiche minori alle classi
                     

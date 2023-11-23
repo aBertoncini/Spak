@@ -23,7 +23,7 @@ Per usare _Spak_ è necessario installare sass
 - Importare nel foglio di stile principale _(ex. main.scss)_ il file `_Spak.scss` tramite il comando `@import "./path-to-spak/Spak"`.
 - Scrivere le proprie regole all'interno di `main.scss`.
 
-Se si vogliono utilizzare le proprie variabili all'interno del progetto allora:
+Se si vogliono utilizzare le proprie variabili all'interno del progetto:
 
 - Copiare la cartella `variables` all'interno del proprio progetto e importare il file `_variables.scss` nel file `main.scss` tramite il comando `@import "./path-to-assets/variables/variables"`.
 - Importare nel foglio di stile principale _(ex. main.scss)_ il file `_Spak.scss` tramite il comando `@import "./path-to-spak/Spak"`.
@@ -34,11 +34,10 @@ Se si vogliono utilizzare le proprie variabili all'interno del progetto allora:
 All'interno del progetto vengono importate librerie css
 
 - **Fogli di stile**
+  - Bulma _default_
   - Bootstrap
-    > se si sceglie di importare Bootstrap non dimenticarsi di importare il file `bootstrap.min.js` all'interno di index.html tramite cdn _(commentato all'interno di `_Spak.scss`)_
-  - Bulma
 - **Icone**
-  - Font Awesome
+  - Font Awesome _default_
   - Bootstrap Icon
   - Google Material Icon
 - **Animazioni**
@@ -75,3 +74,4 @@ Alcuni componenti necessitano di una libreria esterna, ad esempio.
 - **Tooltip**: Tooltip (anche per più elementi in contemporanea, cambiando target)
 - **SideBar**: componente contenitore per pagine con sidebar
 - **BreadCrumb**: creazione automatica breadcrumb in base alla route
+- **Form**: cartella con componenti del form già pronti da usare (dati scambiati attraverso la tecnica del 2-way binding di Vue)

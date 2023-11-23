@@ -373,7 +373,8 @@ button:not(:disabled) {
     &:active {
       transition: $spak-btn-transition; //? da cambiare in futuro
       border-color: $spak-float-border-color-focus;
-      box-shadow: 0 0 0 0.125em rgba(lighten($spak-float-border-color-focus, 5%), 0.75);
+      box-shadow: 0 0 0 0.125em
+        rgba(lighten($spak-float-border-color-focus, 5%), 0.75);
       //box-shadow: 0;
     }
     &::-webkit-input-placeholder {
@@ -416,6 +417,9 @@ button:not(:disabled) {
         border-width: 0 0 0.125rem 0;
         border-radius: 0;
         box-shadow: none;
+        + label {
+          background-color: transparent !important;
+        }
       }
       &::-webkit-input-placeholder {
         color: transparent;
@@ -473,9 +477,11 @@ button:not(:disabled) {
     <label>label</label>
   </div>
 */
-.spak.select.floating-label-container {
+.spak.select.floating-label-container,
+.spak.textarea-floating-label-container {
   position: relative;
-  select {
+  select,
+  textarea {
     border: 0.125em solid $spak-float-border-color;
     border-radius: 5px;
     &:focus,
@@ -489,9 +495,20 @@ button:not(:disabled) {
     top: 0;
     left: 0;
     background-color: $spak-float-label-bg;
-    padding: $spak-float-padding-label-focus;
+    padding: 0 calc(0.5em - 1px); //$spak-float-padding-label-focus;
     transform: $spak-float-label-transform;
     color: $spak-float-label-color-active;
+  }
+  &.bottom-line {
+    select,
+    textarea {
+      border-width: 0 0 0.125rem 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    label {
+      background-color: transparent !important;
+    }
   }
 }
 /* .floating-label-field--s1 {

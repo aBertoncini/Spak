@@ -112,32 +112,19 @@ body {
 
 // !!! CARDS !!!
 
-$card-bg-color: $spak-card-bg-color;
-$card-color: $spak-card-txt-color;
-$card-header-bg-color: $spak-card-header-bg-color;
-$card-header-txt-color: $spak-card-header-txt-color;
-$card-header-title-bg-color: $spak-card-header-title-bg-color;
-$card-header-title-txt-color: $spak-card-header-title-txt-color;
-$card-shadow-color: $spak-card-shadow-color;
-$card-content-bg-color: $spak-card-content-bg-color;
-$card-content-txt-color: $spak-card-content-txt-color;
-$card-footer-bg-color: $spak-card-footer-bg-color;
-$card-footer-txt-color: $spak-card-footer-txt-color;
-$card-footer-border-color: $spak-card-footer-border-color;
-
 .card {
-  background-color: $card-bg-color;
+  background-color: $spak-card-bg-color;
   border-width: 0;
   border-radius: 8px;
-  box-shadow: 0 0.5em 1em -0.125em $card-shadow-color,
-    0 0 0 1px $card-shadow-color;
-  color: $card-color;
+  box-shadow: 0 0.5em 1em -0.125em $spak-card-shadow-color,
+    0 0 0 1px $spak-card-shadow-color;
+  color: $spak-card-txt-color;
   max-width: 100%;
   position: relative;
   padding: 0;
   & .card-divider {
-    background-color: $card-color;
-    color: $card-bg-color;
+    background-color: $spak-card-divider-bg-color;
+    color: $spak-card-divider-txt-color;
     font-weight: 300;
     font-style: italic;
     display: flex;
@@ -158,15 +145,15 @@ $card-footer-border-color: $spak-card-footer-border-color;
   border-bottom-right-radius: 0.25rem;
 }
 .card-header {
-  background-color: $card-header-bg-color;
-  color: $card-header-txt-color;
+  background-color: $spak-card-header-bg-color;
+  color: $spak-card-header-txt-color;
   align-items: stretch;
-  box-shadow: 0 0.125em 0.25em $card-shadow-color;
+  box-shadow: 0 0.125em 0.25em $spak-card-shadow-color;
   display: flex;
 }
 .card-header-title {
-  background-color: $card-header-title-bg-color;
-  color: $card-header-title-txt-color;
+  background-color: $spak-card-header-title-bg-color;
+  color: $spak-card-header-title-txt-color;
   align-items: center;
   display: flex;
   //flex-grow: 1;
@@ -174,14 +161,14 @@ $card-footer-border-color: $spak-card-footer-border-color;
   padding: 0.75rem 1rem;
 }
 .card-content {
-  background-color: $card-content-bg-color;
-  color: $card-content-txt-color;
+  background-color: $spak-card-content-bg-color;
+  color: $spak-card-content-txt-color;
   padding: 1.5rem;
 }
 .card-footer {
-  background-color: $card-footer-bg-color;
-  color: $card-footer-txt-color;
-  border-top: 1px solid $card-footer-border-color;
+  background-color: $spak-card-footer-bg-color;
+  color: $spak-card-footer-txt-color;
+  border-top: 1px solid $spak-card-footer-border-color;
   align-items: stretch;
   display: flex;
   padding: 0 0 0.75rem 0;
@@ -196,7 +183,7 @@ $card-footer-border-color: $spak-card-footer-border-color;
   padding: 0 0.75rem;
 }
 .card-footer-item:not(:last-child) {
-  border-right: 1px solid $card-footer-border-color;
+  border-right: 1px solid $spak-card-footer-border-color;
 }
 .card .media:not(:last-child) {
   margin-bottom: 1.5rem;

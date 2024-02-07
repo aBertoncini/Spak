@@ -134,6 +134,8 @@ $spak-card-content-txt-color: inherit;
 $spak-card-footer-bg-color: transparent;
 $spak-card-footer-txt-color: inherit;
 $spak-card-footer-border-color: #ededed;
+$spak-card-divider-bg-color: $secondary;
+$spak-card-divider-txt-color: $white;
 
 //-- checkbox & radio
 $spak-check-bg: transparent;
@@ -168,10 +170,10 @@ $spak-subtitle-color: $secondary-text;
 $spak-subtitle-fs: 0.8rem;
 $spak-subtitle-fw: 400;
 
-//--navbar
+/* //--navbar
 $navbar: #3333332e;
 $navbar-shrink: #33333373;
-
+ */
 //!!! SPAK COMPONENTS VARS !!!
 
 //-- sidebar component

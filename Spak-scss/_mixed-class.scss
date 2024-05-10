@@ -289,9 +289,9 @@ body {
     }
   }
   //-- override bulma striped
-  &.is-striped tbody tr:not(.is-selected):nth-child(2n) {
+  /* &.is-striped tbody tr:not(.is-selected):nth-child(2n) {
     background-color: $spak-table-hover-bg;
-  }
+  } */
   &.is-hoverable.is-striped tbody tr:not(.is-selected):hover {
     background-color: $spak-table-hover-bg;
   }

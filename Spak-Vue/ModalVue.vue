@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from "vue";
 /*
 <!---- il componente deve avere ref="NomeRef"
 <!---- richiamare NomeRef.show() quando deve essere aperto
@@ -42,7 +41,7 @@ defineExpose({
     <div
       v-show="modalActive"
       class="modal-vue"
-      @click.prevent="onClickOutside"
+      @click="onClickOutside"
       id="modalVueContainer"
     >
       <transition name="modal-animation-inner">

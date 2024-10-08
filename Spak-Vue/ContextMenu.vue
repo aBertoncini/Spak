@@ -104,12 +104,12 @@ $item-color: #000;
     padding-top: calc(0.5em - 1px);
     white-space: nowrap;
     &:hover {
-      background-color: darken($item-bg, 20%);
+      background-color: adjust($item-bg, -20%);
       color: $item-color;
     }
     &:disabled {
-      background-color: lighten($item-bg, 25%);
-      color: lighten($item-color, 13%);
+      background-color: adjust($item-bg, 25%);
+      color: adjust($item-color, 13%);
       cursor: not-allowed;
     }
 

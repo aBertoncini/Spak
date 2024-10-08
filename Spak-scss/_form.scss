@@ -261,10 +261,10 @@ button:not(:disabled) {
     }
     &:disabled {
       cursor: not-allowed;
-      background-color: lighten($spak-check-bg, 20%);
-      color: lighten($spak-check-color, 20%);
-      border-color: lighten(
-        rgba(darken($spak-check-bg-checked, 20%), 0.65),
+      background-color: adjust($spak-check-bg, 20%);
+      color: adjust($spak-check-color, 20%);
+      border-color: adjust(
+        rgba(adjust($spak-check-bg-checked, -20%), 0.65),
         20%
       );
     }
@@ -374,7 +374,7 @@ button:not(:disabled) {
       transition: $spak-btn-transition; //? da cambiare in futuro
       border-color: $spak-float-border-color-focus;
       box-shadow: 0 0 0 0.125em
-        rgba(lighten($spak-float-border-color-focus, 5%), 0.75);
+        rgba(adjust($spak-float-border-color-focus, 5%), 0.75);
       //box-shadow: 0;
     }
     &::-webkit-input-placeholder {

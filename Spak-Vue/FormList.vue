@@ -150,7 +150,7 @@ onMounted(() => {});
   transition: all 0.3s;
   color: $primary-text;
   &:hover {
-    color: adjust($primary-text, -20%);
+    color: color.adjust($primary-text, $lightness: -20%);
   }
 }
 

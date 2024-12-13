@@ -1,3 +1,5 @@
+@use "functions";
+
 // !!! BUTTONS !!!
 .bs-btn {
   margin: 0;
@@ -47,14 +49,14 @@ button:not(:disabled) {
   }
   &:focus:not(:focus-visible),
   &:focus:not(:active) {
-    outline: tint-color($spak-btn-outline-color, 60%) solid 0.2em;
+    outline: functions.tint-color($spak-btn-outline-color, 60%) solid 0.2em;
     box-shadow: $spak-btn-focus-box-shadow;
   }
   &:disabled {
     cursor: not-allowed;
-    background-color: rgba(tint-color($spak-btn-bg-color, 30%), 0.68);
-    border-color: rgba(tint-color($spak-btn-bg-color, 30%), 0.1);
-    color: tint-color($spak-btn-txt-color, 20%);
+    background-color: rgba(functions.tint-color($spak-btn-bg-color, 30%), 0.68);
+    border-color: rgba(functions.tint-color($spak-btn-bg-color, 30%), 0.1);
+    color: functions.tint-color($spak-btn-txt-color, 20%);
   }
 
   //^^^ variante secondo colore ^^^
@@ -72,14 +74,14 @@ button:not(:disabled) {
     }
     &:focus:not(:focus-visible),
     &:focus:not(:active) {
-      outline: tint-color($spak-btn-2-outline-color, 60%) solid 0.2em;
+      outline: functions.tint-color($spak-btn-2-outline-color, 60%) solid 0.2em;
       box-shadow: $spak-btn-2-focus-box-shadow;
     }
     &:disabled {
       cursor: not-allowed;
-      background-color: rgba(tint-color($spak-btn-2-bg-color, 30%), 0.68);
-      border-color: rgba(tint-color($spak-btn-2-bg-color, 30%), 0.1);
-      color: tint-color($spak-btn-2-txt-color, 20%);
+      background-color: rgba(functions.tint-color($spak-btn-2-bg-color, 30%), 0.68);
+      border-color: rgba(functions.tint-color($spak-btn-2-bg-color, 30%), 0.1);
+      color: functions.tint-color($spak-btn-2-txt-color, 20%);
     }
   }
 }
@@ -261,11 +263,11 @@ button:not(:disabled) {
     }
     &:disabled {
       cursor: not-allowed;
-      background-color: adjust($spak-check-bg, 20%);
-      color: adjust($spak-check-color, 20%);
-      border-color: adjust(
-        rgba(adjust($spak-check-bg-checked, -20%), 0.65),
-        20%
+      background-color: color.adjust($spak-check-bg, $lightness: 20%);
+      color: color.adjust($spak-check-color, $lightness: 20%);
+      border-color: color.adjust(
+        rgba(color.adjust($spak-check-bg-checked, $lightness: -20%), 0.65),
+        $lightness: 20%
       );
     }
     //-- checkbox style
@@ -374,7 +376,7 @@ button:not(:disabled) {
       transition: $spak-btn-transition; //? da cambiare in futuro
       border-color: $spak-float-border-color-focus;
       box-shadow: 0 0 0 0.125em
-        rgba(adjust($spak-float-border-color-focus, 5%), 0.75);
+        rgba(color.adjust($spak-float-border-color-focus, $lightness: 5%), 0.75);
       //box-shadow: 0;
     }
     &::-webkit-input-placeholder {
@@ -410,7 +412,7 @@ button:not(:disabled) {
         border: 1px solid transparent;
         padding: $spak-float-padding-label;
         transform-origin: 0 0;
-        @include transition($spak-float-transition);
+        @include functions.transition($spak-float-transition);
       }
       //^^^ float field type 1 only bottom line ^^^
       &.bottom-line {

@@ -1,3 +1,4 @@
+@use "sass:color";
 @mixin transition($transition...) {
   transition: $transition;
   @media (prefers-reduced-motion: reduce) {
@@ -9,17 +10,17 @@
 // Return opaque color
 // opaque(#fff, rgba(0, 0, 0, .5)) => #808080
 @function opaque($background, $foreground) {
-  @return mix(rgba($foreground, 1), $background, opacity($foreground) * 100);
+  @return color.mix(rgba($foreground, 1), $background, color.opacity($foreground) * 100);
 }
 
 // Tint a color: mix a color with white
 @function tint-color($color, $weight) {
-  @return mix(white, $color, $weight);
+  @return color.mix(white, $color, $weight);
 }
 
 // Shade a color: mix a color with black
 @function shade-color($color, $weight) {
-  @return mix(black, $color, $weight);
+  @return color.mix(black, $color, $weight);
 }
 
 // Shade the color if the weight is positive, else tint it

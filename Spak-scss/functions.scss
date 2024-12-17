@@ -1,0 +1,7 @@
+@use "sass:color";
+@mixin transition($transition...) {
+  transition: $transition;
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}

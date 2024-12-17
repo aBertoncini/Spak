@@ -1,5 +1,6 @@
-@use "functions";
+@use "functions" as f;
 @use "media-queries";
+@use "form" as formclass;
 
 // !!! DOM !!!
 :root {
@@ -26,13 +27,13 @@ body {
 
 // !!! BOX !!!
 .box {
-  background-color: $spak-box-bg;
-  border-radius: $spak-box-border-radius;
+  background-color: var(--spak-box-bg);
+  border-radius: var(--spak-box-border-radius);
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
     0 0 0 1px rgba(10, 10, 10, 0.02);
-  color: $spak-box-color;
+  color: var(--spak-box-color);
   display: block;
-  padding: $spak-box-padding;
+  padding: var(--spak-box-padding);
 }
 
 // !!! CONTAINER !!!
@@ -116,18 +117,18 @@ body {
 // !!! CARDS !!!
 
 .card {
-  background-color: $spak-card-bg-color;
+  background-color: var(--spak-card-bg-color);
   border-width: 0;
   border-radius: 8px;
-  box-shadow: 0 0.5em 1em -0.125em $spak-card-shadow-color,
-    0 0 0 1px $spak-card-shadow-color;
-  color: $spak-card-txt-color;
+  box-shadow: 0 0.5em 1em -0.125em var(--spak-card-shadow-color),
+    0 0 0 1px var(--spak-card-shadow-color);
+  color: var(--spak-card-txt-color);
   max-width: 100%;
   position: relative;
   padding: 0;
   & .card-divider {
-    background-color: $spak-card-divider-bg-color;
-    color: $spak-card-divider-txt-color;
+    background-color: var(--spak-card-divider-bg-color);
+    color: var(--spak-card-divider-txt-color);
     font-weight: 300;
     font-style: italic;
     display: flex;
@@ -148,15 +149,15 @@ body {
   border-bottom-right-radius: 0.25rem;
 }
 .card-header {
-  background-color: $spak-card-header-bg-color;
-  color: $spak-card-header-txt-color;
+  background-color: var(--spak-card-header-bg-color);
+  color: var(--spak-card-header-txt-color);
   align-items: stretch;
-  box-shadow: 0 0.125em 0.25em $spak-card-shadow-color;
+  box-shadow: 0 0.125em 0.25em var(--spak-card-shadow-color);
   display: flex;
 }
 .card-header-title {
-  background-color: $spak-card-header-title-bg-color;
-  color: $spak-card-header-title-txt-color;
+  background-color: var(--spak-card-header-title-bg-color);
+  color: var(--spak-card-header-title-txt-color);
   align-items: center;
   display: flex;
   //flex-grow: 1;
@@ -164,14 +165,14 @@ body {
   padding: 0.75rem 1rem;
 }
 .card-content {
-  background-color: $spak-card-content-bg-color;
-  color: $spak-card-content-txt-color;
+  background-color: var(--spak-card-content-bg-color);
+  color: var(--spak-card-content-txt-color);
   padding: 1.5rem;
 }
 .card-footer {
-  background-color: $spak-card-footer-bg-color;
-  color: $spak-card-footer-txt-color;
-  border-top: 1px solid $spak-card-footer-border-color;
+  background-color: var(--spak-card-footer-bg-color);
+  color: var(--spak-card-footer-txt-color);
+  border-top: 1px solid var(--spak-card-footer-border-color);
   align-items: stretch;
   display: flex;
   padding: 0 0 0.75rem 0;
@@ -186,7 +187,7 @@ body {
   padding: 0 0.75rem;
 }
 .card-footer-item:not(:last-child) {
-  border-right: 1px solid $spak-card-footer-border-color;
+  border-right: 1px solid var(--spak-card-footer-border-color);
 }
 .card .media:not(:last-child) {
   margin-bottom: 1.5rem;
@@ -269,34 +270,34 @@ body {
 .spak.table {
   & td,
   & th {
-    border-color: $spak-table-border-color;
+    border-color: var(--spak-table-border-color);
   }
   & .table-header {
-    background-color: $spak-table-header-bg-color;
-    color: $spak-table-header-txt-color;
+    background-color: var(--spak-table-header-bg-color);
+    color: var(--spak-table-header-txt-color);
     & th {
-      color: $spak-table-header-txt-color;
+      color: var(--spak-table-header-txt-color);
     }
   }
   & tbody {
     & tr {
       & th {
-        color: $spak-table-th-txt;
+        color: var(--spak-table-th-txt);
       }
       &:hover,
       &:not(.is-selected):hover, //-- override bulma
       &:active,
       &:focus {
-        background-color: $spak-table-hover-bg;
+        background-color: var(--spak-table-hover-bg);
       }
     }
   }
   //-- override bulma striped
   /* &.is-striped tbody tr:not(.is-selected):nth-child(2n) {
-    background-color: $spak-table-hover-bg;
+    background-color: var(--spak-table-hover-bg;
   } */
   &.is-hoverable.is-striped tbody tr:not(.is-selected):hover {
-    background-color: $spak-table-hover-bg;
+    background-color: var(--spak-table-hover-bg);
   }
 }
 
@@ -304,16 +305,16 @@ body {
 
 .spak {
   &-subtitle {
-    font-size: $spak-subtitle-fs;
-    font-weight: $spak-subtitle-fw;
-    color: $spak-subtitle-color;
+    font-size: var(--spak-subtitle-fs);
+    font-weight: var(--spak-subtitle-fw);
+    color: var(--spak-subtitle-color);
   }
   &-title {
-    color: $spak-title-color;
-    font-size: $spak-title-fs;
-    font-weight: $spak-title-fw;
-    line-height: $spak-title-line-height;
-    padding: $spak-title-padding-y $spak-title-padding-y;
+    color: var(--spak-title-color);
+    font-size: var(--spak-title-fs);
+    font-weight: var(--spak-title-fw);
+    line-height: var(--spak-title-line-height);
+    padding: var(--spak-title-padding-y) var(--spak-title-padding-y);
   }
 }
 
@@ -365,12 +366,12 @@ body {
   &-form {
     &-hint {
       @extend .txt-s;
-      color: rgba($primary-text, 0.7);
+      color: var(--spak-txt-form-hint);
       padding: 0 0.375rem;
     }
     &-err {
       @extend .txt-s;
-      color: $error-color;
+      color: var(--spak-color-error-color);
       padding: 0 0.375rem;
     }
   }
@@ -428,35 +429,3 @@ ul {
 /* hr {
   background-color: transparent;
 } */
-
-//!!! SWEETALERT BUTTON
-.swal-deny {
-  background-color: transparent;
-  color: $primary-text;
-  margin: 0.3em;
-  font-size: 0.8em;
-  padding: 0.3em;
-  border: none;
-  background-color: functions.tint-color($primary, 80%);
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: functions.tint-color($primary, 85%);
-    color: $primary-text;
-  }
-}
-
-.swal-cancel {
-  @extend .btn;
-  color: $primary-text;
-  background-color: functions.tint-color($primary, 80%);
-  border-color: functions.tint-color($primary, 80%);
-  margin-left: 0.8em;
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: functions.tint-color($primary, 85%);
-    border-color: functions.tint-color($primary, 85%);
-    color: $primary-text;
-  }
-}

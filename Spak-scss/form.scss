@@ -13,7 +13,7 @@
   -moz-appearance: button;
 
   display: inline-block;
-  padding: $spak-btn-padding-y $spak-btn-padding-x;
+  padding: var(--spak-btn-padding-y) var(--spak-btn-padding-x);
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
@@ -21,10 +21,10 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  transition: $spak-btn-transition;
-  box-shadow: $spak-btn-box-shadow;
+  transition: var(--spak-btn-transition);
+  box-shadow: var(--spak-btn-box-shadow);
   &:focus {
-    box-shadow: $spak-btn-focus-box-shadow;
+    box-shadow: var(--spak-btn-focus-box-shadow);
   }
 }
 
@@ -35,53 +35,53 @@ button:not(:disabled) {
 .btn {
   @extend .bs-btn;
   cursor: pointer;
-  background-color: $spak-btn-bg-color; //colore di sfondo
-  border: 0.125em solid $spak-btn-border-color;
-  color: $spak-btn-txt-color;
+  background-color: var(--spak-btn-bg-color); //colore di sfondo
+  border: 0.125em solid var(--spak-btn-border-color);
+  color: var(--spak-btn-txt-color);
   border-radius: 6px;
   transition: ease 0.25s;
   &:hover,
   &:active,
   &:focus {
-    background-color: $spak-btn-bg-active;
-    border-color: $spak-btn-border-active;
-    color: $spak-btn-font-active;
+    background-color: var(--spak-btn-bg-active);
+    border-color: var(--spak-btn-border-active);
+    color: var(--spak-btn-font-active);
   }
   &:focus:not(:focus-visible),
   &:focus:not(:active) {
-    outline: functions.tint-color($spak-btn-outline-color, 60%) solid 0.2em;
-    box-shadow: $spak-btn-focus-box-shadow;
+    outline: var(--spak-btn-outline-color-focus-not-active) solid 0.2em;
+    box-shadow: var(--spak-btn-focus-box-shadow);
   }
   &:disabled {
     cursor: not-allowed;
-    background-color: rgba(functions.tint-color($spak-btn-bg-color, 30%), 0.68);
-    border-color: rgba(functions.tint-color($spak-btn-bg-color, 30%), 0.1);
-    color: functions.tint-color($spak-btn-txt-color, 20%);
+    background-color: var(--spak-btn-disabled-bg-color);
+    border-color: var(--spak-btn-disabled-border-color);
+    color: var(--spak-btn-disabled-color);
   }
 
   //^^^ variante secondo colore ^^^
   &.color-2 {
-    background-color: $spak-btn-2-bg-color;
-    border-color: $spak-btn-2-border-color;
-    color: $spak-btn-2-txt-color;
-    box-shadow: $spak-btn-2-box-shadow;
+    background-color: var(--spak-btn-2-bg-color);
+    border-color: var(--spak-btn-2-border-color);
+    color: var(--spak-btn-2-txt-color);
+    box-shadow: var(--spak-btn-2-box-shadow);
     &:hover,
     &:active,
     &:focus {
-      background-color: $spak-btn-2-bg-active;
-      border-color: $spak-btn-2-border-active;
-      color: $spak-btn-2-font-active;
+      background-color: var(--spak-btn-2-bg-active);
+      border-color: var(--spak-btn-2-border-active);
+      color: var(--spak-btn-2-font-active);
     }
     &:focus:not(:focus-visible),
     &:focus:not(:active) {
-      outline: functions.tint-color($spak-btn-2-outline-color, 60%) solid 0.2em;
-      box-shadow: $spak-btn-2-focus-box-shadow;
+      outline: var(--spak-btn-2-outline-color-focus-not-active) solid 0.2em;
+      box-shadow: var(--spak-btn-2-focus-box-shadow);
     }
     &:disabled {
       cursor: not-allowed;
-      background-color: rgba(functions.tint-color($spak-btn-2-bg-color, 30%), 0.68);
-      border-color: rgba(functions.tint-color($spak-btn-2-bg-color, 30%), 0.1);
-      color: functions.tint-color($spak-btn-2-txt-color, 20%);
+      background-color: var(--spak-btn-2-disabled-bg-color);
+      border-color: var(--spak-btn-2-disabled-border-color);
+      color: var(--spak-btn-2-disabled-color);
     }
   }
 }
@@ -150,7 +150,7 @@ button:not(:disabled) {
     height: 1em;
     width: 1em;
     border-radius: 50%;
-    background-color: $btn-notification-icon-color;
+    background-color: var(--spak-btn-notification-icon-color);
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
     border: 1px solid rgba(0, 0, 0, 0.2);
 
@@ -199,7 +199,7 @@ button:not(:disabled) {
   }
   //& .form-control ~ .icon,
   & .spak.input ~ .icon {
-    color: $spak-form-icon-input-icon-color;
+    color: var(--spak-form-icon-input-icon-color);
     height: 2.5em;
     pointer-events: none;
     position: absolute;
@@ -231,13 +231,13 @@ button:not(:disabled) {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background-color: $spak-check-bg;
+    background-color: var(--spak-check-bg);
     margin: 0;
     font: inherit;
     color: currentColor;
     width: 1.15em;
     height: 1.15em;
-    border: 0.15em solid rgba($spak-check-border-color, 0.65);
+    border: 0.15em solid var(--spak-check-input-border-color);
     transform: translateY(-0.075em);
     display: grid;
     place-content: center;
@@ -255,30 +255,26 @@ button:not(:disabled) {
       }
     }
     &:focus {
-      outline: max(2px, 0.15em) solid rgba($spak-check-border-color, 0.5);
-      //outline-offset: max(1px, 0.05em);
+      outline: max(2px, 0.15em) solid var(--spak-check-focus-outline-color);
     }
     &:focus-within {
-      color: $spak-check-color;
+      color: var(--spak-check-color);
     }
     &:disabled {
       cursor: not-allowed;
-      background-color: color.adjust($spak-check-bg, $lightness: 20%);
-      color: color.adjust($spak-check-color, $lightness: 20%);
-      border-color: color.adjust(
-        rgba(color.adjust($spak-check-bg-checked, $lightness: -20%), 0.65),
-        $lightness: 20%
-      );
+      background-color: var(--spak-check-disabled-bg-color);
+      color: var(--spak-check-disabled-color);
+      border-color: var(--spak-check-disabled-border-color);
     }
     //-- checkbox style
     &[type="checkbox"] {
       border-radius: 0.15em;
       &:checked {
-        background-color: $spak-check-bg-checked;
+        background-color: var(--spak-check-bg-checked);
       }
       &::before {
         //-- check symbol + color
-        box-shadow: inset 1em 1em $spak-check-color;
+        box-shadow: inset 1em 1em var(--spak-check-color);
         -webkit-clip-path: polygon(
           14% 44%,
           0 65%,
@@ -295,11 +291,11 @@ button:not(:disabled) {
     &[type="radio"] {
       border-radius: 50%;
       &:checked {
-        background-color: $spak-radio-bg-checked;
+        background-color: var(--spak-radio-bg-checked);
       }
       &::before {
         border-radius: 50%;
-        box-shadow: inset 1em 1em $spak-radio-inset-color;
+        box-shadow: inset 1em 1em var(--spak-radio-inset-color);
       }
     }
   }
@@ -314,17 +310,11 @@ button:not(:disabled) {
   input[type="radio"] {
     display: none;
     &:checked + label {
-      background-color: $spak-btn-bg-active;
+      background-color: var(--spak-btn-bg-active);
     }
   }
   label {
     @extend .btn;
-    /* display: inline-block;
-    background-color: #d1d1d1;
-    padding: 4px 11px;
-    font-family: Arial;
-    font-size: 18px;
-    cursor: pointer; */
   }
 }
 
@@ -339,8 +329,8 @@ button:not(:disabled) {
 
 .floating-label-container {
   position: relative;
-  margin: $spak-float-container-margin;
-  background-color: $spak-float-label-bg;
+  margin: var(--spak-float-container-margin);
+  background-color: var(--spak-float-label-bg);
   //margin-top: add();
   input[type="number"] {
     appearance: none;
@@ -355,49 +345,48 @@ button:not(:disabled) {
     }
   }
   label {
-    color: $spak-float-label-color;
+    color: var(--spak-float-label-color);
     background-color: transparent;
     width: auto;
-    font-size: $spak-float-label-font-size;
-    padding: $spak-float-padding-label;
+    font-size: var(--spak-float-label-font-size);
+    padding: var(--spak-float-padding-label);
   }
   .float-field {
     outline: 0;
     width: 100%;
-    padding: $spak-float-padding;
+    padding: var(--spak-float-padding);
     transition: border-color 0.25s ease-in-out;
-    border: 0.125em solid $spak-float-border-color;
+    border: 0.125em solid var(--spak-float-border-color);
     border-radius: 5px;
     background-color: transparent;
     font: inherit;
     line-height: 100%;
     &:focus,
     &:active {
-      transition: $spak-btn-transition; //? da cambiare in futuro
-      border-color: $spak-float-border-color-focus;
-      box-shadow: 0 0 0 0.125em
-        rgba(color.adjust($spak-float-border-color-focus, $lightness: 5%), 0.75);
+      transition: var(--spak-btn-transition); //? da cambiare in futuro
+      border-color: var(--spak-float-border-color-focus);
+      box-shadow: 0 0 0 0.125em var(--spak-float-active-box-shadow-color);
       //box-shadow: 0;
     }
     &::-webkit-input-placeholder {
-      color: $spak-float-placeholder-color;
+      color: var(--spak-float-placeholder-color);
     }
     &::-moz-placeholder {
-      color: $spak-float-placeholder-color;
+      color: var(--spak-float-placeholder-color);
     }
     &:-ms-input-placeholder {
-      color: $spak-float-placeholder-color;
+      color: var(--spak-float-placeholder-color);
     }
     &::-ms-input-placeholder {
-      color: $spak-float-placeholder-color;
+      color: var(--spak-float-placeholder-color);
     }
     &::placeholder {
-      color: $spak-float-placeholder-color;
+      color: var(--spak-float-placeholder-color);
     }
 
     //^^^ float field type 1 ^^^
     &.--t1 {
-      //padding: $spak-float-padding;
+      //padding: var(--spak-float-padding);
       + label {
         position: absolute;
         top: 0;
@@ -410,9 +399,9 @@ button:not(:disabled) {
         white-space: nowrap;
         pointer-events: none;
         border: 1px solid transparent;
-        padding: $spak-float-padding-label;
+        padding: var(--spak-float-padding-label);
         transform-origin: 0 0;
-        @include functions.transition($spak-float-transition);
+        @include functions.transition(var(--spak-float-transition));
       }
       //^^^ float field type 1 only bottom line ^^^
       &.bottom-line {
@@ -440,35 +429,35 @@ button:not(:disabled) {
       }
       &:focus,
       &:not(:placeholder-shown) {
-        //padding: $spak-float-padding-label;
+        //padding: var(--spak-float-padding-label);
         ~ label {
           width: auto;
           height: -webkit-max-content;
           height: -moz-max-content;
           height: max-content;
-          padding: $spak-float-padding-label-focus;
-          transform: $spak-float-label-transform;
-          background-color: $spak-float-label-bg;
-          color: $spak-float-label-color-active;
+          padding: var(--spak-float-padding-label-focus);
+          transform: var(--spak-float-label-transform);
+          background-color: var(--spak-float-label-bg);
+          color: var(--spak-float-label-color-active);
         }
       }
       // Duplicated because `:-webkit-autofill` invalidates other selectors when grouped
       &:-webkit-autofill {
-        //padding: $spak-float-padding-label;
+        //padding: var(--spak-float-padding-label);
         ~ label {
           width: auto;
           height: -webkit-max-content;
           height: max-content;
-          padding: $spak-float-padding-label-focus;
-          transform: $spak-float-label-transform;
-          background-color: $spak-float-label-bg;
-          color: $spak-float-label-color-active;
+          padding: var(--spak-float-padding-label-focus);
+          transform: var(--spak-float-label-transform);
+          background-color: var(--spak-float-label-bg);
+          color: var(--spak-float-label-color-active);
         }
       }
     }
   }
 }
-//^^^ SELCT CON FLOAT LABEL -> .spak.select.floating-label-container [...]
+//^^^ SELECT CON FLOAT LABEL -> .spak.select.floating-label-container [...]
 /* 
 <div class="spak select floating-label-container">
     <select >
@@ -484,11 +473,11 @@ button:not(:disabled) {
   position: relative;
   select,
   textarea {
-    border: 0.125em solid $spak-float-border-color;
+    border: 0.125em solid var(--spak-float-border-color);
     border-radius: 5px;
     &:focus,
     &:active {
-      border-color: $spak-float-border-color-focus;
+      border-color: var(--spak-float-border-color-focus);
       box-shadow: 0;
     }
   }
@@ -496,10 +485,10 @@ button:not(:disabled) {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: $spak-float-label-bg;
-    padding: 0 calc(0.5em - 1px); //$spak-float-padding-label-focus;
-    transform: $spak-float-label-transform;
-    color: $spak-float-label-color-active;
+    background-color: var(--spak-float-label-bg);
+    padding: 0 calc(0.5em - 1px); //var(--spak-float-padding-label-focus);
+    transform: var(--spak-float-label-transform);
+    color: var(--spak-float-label-color-active);
   }
   &.bottom-line {
     select,
@@ -513,168 +502,30 @@ button:not(:disabled) {
     }
   }
 }
-/* .floating-label-field--s1 {
-  transition: border-color 0.25s ease-in-out;
-  color: $spak-float-field-color;
-  border-bottom: 3px solid rgba(255, 255, 255, 0.05);
-  background-color: $background-color_1;
-  padding: 1.5em;
-  + {
-    .floating-label {
-      transition: transform 0.25s, opacity 0.25s ease-in-out;
-      transform-origin: 0 0;
-      opacity: 0.5;
-      padding: 1.5em;
-      z-index: 1500;
-    }
-  }
-  &:focus {
-    border-color: $border-color_1;
-    + {
-      .floating-label {
-        transform: translate(0.25em, -30%) scale(0.8);
-        opacity: 0.25;
-      }
-    }
-  }
-  &:not(:placeholder-shown) {
-    border-color: $border-color_1;
-    + {
-      .floating-label {
-        transform: translate(0.25em, -30%) scale(0.8);
-        opacity: 0.25;
-      }
-    }
-  }
-  &:valid {
-    &:not(:placeholder-shown) {
-      border-color: $border-color_2;
-    }
-  }
-  &:invalid {
-    border-color: $border-color_3;
-  }
-  &:not(textarea) {
-    max-height: 4em;
-  }
-  &::placeholder {
-    color: transparent;
-  }
-}
-.floating-label-field--s2 {
-  transition: background-color 0.25s ease-in-out;
-  border: 2px solid #fff;
-  border-radius: 5px;
-  background-color: $background-color_2;
-  padding: 1.5em;
-  + {
-    .floating-label {
-      visibility: hidden;
-      transition: transform 0.25s, visibility 0.5s, opacity 0.5s ease-in-out;
-      opacity: 0;
-      padding: 1.5em;
-      z-index: 1500;
-    }
-  }
-  &:focus {
-    + {
-      .floating-label {
-        visibility: visible;
-        transform: translateY(-80%);
-        opacity: 0.5;
-      }
-    }
-  }
-  &:not(:placeholder-shown) {
-    + {
-      .floating-label {
-        visibility: visible;
-        transform: translateY(-80%);
-        opacity: 0.5;
-      }
-    }
-  }
-  &:valid {
-    &:not(:placeholder-shown) {
-      border-color: $border-color_4;
-      background-color: $background-color_3;
-    }
-  }
-  &:invalid {
-    border-color: $border-color_5;
-    background-color: $background-color_4;
-  }
-  &:not(textarea) {
-    max-height: 4em;
-  }
-}
-.floating-label-field--s3 {
-  padding: 0.75em;
-  transition: border-color 0.25s ease-in-out;
-  color: $spak-float-field-color;
-  border: 0.125em solid rgba($spak-float-border-color, 0.1);
-  border-radius: 5px;
-  background-color: transparent;
-  font: inherit;
-  + {
-    .floating-label {
-      position: absolute;
-      top: 0.75em;
-      left: 0.75em;
-      display: inline-block;
-      width: auto;
-      margin: 0;
-      padding: 0.75em;
-      transition: transform 0.25s, opacity 0.25s, padding 0.25s ease-in-out;
-      transform-origin: 0 0;
-      //color: $color_4;
-    }
-  }
-  &:focus,
-  &:not(:placeholder-shown) {
-    //border-color: $border-color_1;
-    + {
-      .floating-label {
-        z-index: 2500;
-        padding: 0.75em;
-        transform: translate(0, -1em) scale(0.9);
-        //color: $color_5;
-        background-color: $spak-float-label-bg;
-      }
-    }
-  }
-  &:not(textarea) {
-    max-height: 4em;
-  }
-  &::placeholder {
-    color: transparent;
-  }
-} */
 
 //!!! OVERRIDE BULMA !!!
-
 .spak {
   &::-webkit-input-placeholder {
-    color: $spak-placeholder-color;
+    color: var(--spak-placeholder-color);
   }
   &::-moz-placeholder {
-    color: $spak-placeholder-color;
+    color: var(--spak-placeholder-color);
   }
   &:-ms-input-placeholder {
-    color: $spak-placeholder-color;
+    color: var(--spak-placeholder-color);
   }
   &::-ms-input-placeholder {
-    color: $spak-placeholder-color;
+    color: var(--spak-placeholder-color);
   }
   &::placeholder {
-    color: $spak-placeholder-color;
+    color: var(--spak-placeholder-color);
   }
   &.input,
   &.select select,
   &.textarea {
-    background-color: $spak-bulma-form-bg-color;
-    border-color: $spak-bulma-form-border-color;
-    color: $spak-bulma-form-color;
+    background-color: var(--spak-bulma-form-bg-color);
+    border-color: var(--spak-bulma-form-border-color);
+    color: var(--spak-bulma-form-color);
   }
   &.select select:focus,
   &.textarea:focus,
@@ -682,18 +533,18 @@ button:not(:disabled) {
   &.select select:active,
   &.textarea:active,
   &.input:active {
-    transition: $spak-btn-transition; //? da cambiare in futuro
-    box-shadow: $spak-bulma-form-focus-box-shadow-is-active-input;
+    transition: var(--spak-btn-transition); //? da cambiare in futuro
+    box-shadow: var(--spak-bulma-form-focus-box-shadow-is-active-input);
   }
   &.textarea {
-    box-shadow: $spak-bulma-form-focus-box-shadow-textarea;
-    border-radius: $spak-bulma-form-field-border-radius;
-    padding: $spak-form-input-padding;
+    box-shadow: var(--spak-bulma-form-focus-box-shadow-textarea);
+    border-radius: var(--spak-bulma-form-field-border-radius);
+    padding: var(--spak-form-input-padding);
   }
   &.input {
-    box-shadow: $spak-bulma-form-focus-box-shadow-input;
-    border-radius: $spak-bulma-form-field-border-radius;
-    padding: $spak-form-input-padding;
+    box-shadow: var(--spak-bulma-form-focus-box-shadow-input);
+    border-radius: var(--spak-bulma-form-field-border-radius);
+    padding: var(--spak-form-input-padding);
   }
   &.field.has-addons {
     margin: 0;
@@ -702,7 +553,7 @@ button:not(:disabled) {
     width: 100%;
   }
   &.select:not(.is-multiple):not(.is-loading)::after {
-    border-color: $spak-bulma-form-focus-border-color;
+    border-color: var(--spak-bulma-form-focus-border-color);
   }
 }
 .container-select-label-top {
@@ -727,25 +578,49 @@ button:not(:disabled) {
           //-- active -- btn is right
           button {
             transition-delay: 0ms;
-            border-radius: 0 $spak-btn-border-radius $spak-btn-border-radius 0;
+            border-radius: 0 var(--spak-btn-border-radius)
+              var(--spak-btn-border-radius) 0;
           }
         }
       }
       & ~ .control.--animate-btn {
         //-- non active -- btn is right
         button {
-          //transition: border-radius 300ms ease 300ms;
-          //animation: radiusChange 300ms;
-          //animation-delay: 300ms;
-          border-radius: $spak-btn-border-radius;
-
-          /* @keyframes radiusChange {
-            to {
-              border-radius: $spak-btn-border-radius;
-            }
-          } */
+          border-radius: var(--spak-btn-border-radius);
         }
       }
     }
+  }
+}
+
+//!!! SWEETALERT BUTTON
+.swal-deny {
+  background-color: transparent;
+  color: var(--spak-sweetalert-color);
+  margin: 0.3em;
+  font-size: 0.8em;
+  padding: 0.3em;
+  border: none;
+  background-color: var(--spak-sweetalert-bg-color);
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: var(--spak-sweetalert-active-bg-color);
+    color: var(--spak-sweetalert-color);
+  }
+}
+
+.swal-cancel {
+  @extend .btn;
+  color: var(--spak-sweetalert-color);
+  background-color: var(--spak-sweetalert-bg-color);
+  border-color: var(--spak-sweetalert-border-color);
+  margin-left: 0.8em;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: var(--spak-sweetalert-active-bg-color);
+    border-color: var(--spak-sweetalert-active-border-color);
+    color: var(--spak-sweetalert-color);
   }
 }

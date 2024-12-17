@@ -1,0 +1,417 @@
+// v2.2
+@use "sass:color";
+@use "sass:meta";
+@use "colors" as c;
+
+//*** import external libraries ***
+//-- bulma
+@import url("https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css");
+//-- fontawesome.css
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css");
+//-- bootstrap icons
+//@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+//-- google material symbols
+//@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"); //-- outlined
+//@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"); //-- rounded
+//@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" ); //-- sharp
+//-- animate.css
+//@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
+//-- google fonts
+//@import url("https://fonts.googleapis.com/css?family=Michroma");
+//@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
+//@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Oswald:wght@700&display=swap");
+
+//*** vars functions used in vue components ***
+//-- define local variable
+@mixin def-var($name, $value) {
+  #{--$name}: $value;
+}
+//-- access any variable
+@function v($name) {
+  @return var(--#{$name});
+}
+
+@function buildVarName($name, $prefix: "", $suffix: "") {
+  @return "--#{$prefix}#{$name}#{$suffix}";
+}
+
+@function getVar($name, $prefix: "", $suffix: "") {
+  $varName: buildVarName($name, $prefix, $suffix);
+  @return var(#{$varName});
+}
+
+@mixin register-var($name, $value, $prefix: "", $suffix: "") {
+  $varName: buildVarName($name, $prefix, $suffix);
+  #{$varName}: #{$value};
+}
+
+@mixin register-vars($vars, $prefix: "", $suffix: "") {
+  @each $name, $value in $vars {
+    @include register-var($name, $value, $prefix, $suffix);
+  }
+}
+
+$font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+
+//*** Spak variables
+//--btn
+$spak-btn-bg-color: c.$primary-text;
+$spak-btn-txt-color: c.$white;
+$spak-btn-border-color: c.$primary-text;
+
+$spak-btn-bg-active: transparent;
+$spak-btn-border-active: color.adjust($spak-btn-bg-color, $lightness: -20%);
+$spak-btn-font-active: color.adjust($spak-btn-bg-color, $lightness: -20%);
+$spak-btn-padding-x: 0.75rem;
+$spak-btn-padding-y: 0.375rem;
+$spak-btn-border-radius: 0.375rem;
+$spak-btn-box-shadow: none;
+$spak-btn-disabled-opacity: 0.65;
+$spak-btn-outline-color: $spak-btn-bg-color;
+$spak-btn-outline-color-focus-not-active: c.tint-color(
+  $spak-btn-outline-color,
+  60%
+);
+$spak-btn-focus-box-shadow: 0 0 0 0.25rem rgba($spak-btn-bg-color, 0.5);
+$spak-btn-transition: color 0.15s ease-in-out,
+  background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+  box-shadow 0.15s ease-in-out !default;
+$spak-btn-disabled-color: c.tint-color($spak-btn-txt-color, 20%);
+$spak-btn-disabled-bg-color: rgba(c.tint-color($spak-btn-bg-color, 30%), 0.68);
+$spak-btn-disabled-border-color: rgba(
+  c.tint-color($spak-btn-bg-color, 30%),
+  0.1
+);
+
+//--btn.color-2
+$spak-btn-2-bg-color: c.$secondary;
+$spak-btn-2-txt-color: c.$white;
+$spak-btn-2-border-color: c.$secondary;
+$spak-btn-2-bg-active: color.adjust($spak-btn-2-bg-color, $lightness: -20%);
+$spak-btn-2-border-active: color.adjust($spak-btn-2-bg-color, $lightness: -20%);
+$spak-btn-2-font-active: $spak-btn-2-txt-color;
+$spak-btn-2-outline-color: $spak-btn-2-bg-color;
+$spak-btn-2-outline-color-focus-not-active: c.tint-color(
+  $spak-btn-2-outline-color,
+  60%
+);
+$spak-btn-2-box-shadow: none;
+$spak-btn-2-focus-box-shadow: 0 0 0 0.25rem rgba($spak-btn-2-bg-color, 0.5);
+$spak-btn-2-disabled-color: c.tint-color($spak-btn-2-txt-color, 20%);
+$spak-btn-2-disabled-bg-color: rgba(
+  c.tint-color($spak-btn-2-bg-color, 30%),
+  0.68
+);
+$spak-btn-2-disabled-border-color: rgba(
+  c.tint-color($spak-btn-2-bg-color, 30%),
+  0.1
+);
+
+//-- btn-notification
+$btn-notification-icon-color: c.$secondary;
+
+//--box
+$spak-box-bg: c.$white;
+$spak-box-color: inherit;
+$spak-box-border-radius: 6px;
+$spak-box-padding: 1.25rem;
+
+//--form
+$spak-form-input-padding: calc(0.5em - 1px) calc(0.75em - 1px);
+$spak-placeholder-color: rgba(#000, 0.75);
+$spak-form-icon-input-icon-color: c.$primary-text;
+
+//-- BULMA FORM OVERRIDE !!!
+$spak-bulma-form-focus-border-color: rgba(c.$secondary, 0.8);
+$spak-bulma-form-focus-box-shadow-color: rgba(c.$secondary, 0.2);
+$spak-bulma-form-focus-box-shadow-input: none; //inset 0 0.0625em 0.125em $spak-bulma-form-focus-box-shadow-color;
+$spak-bulma-form-focus-box-shadow-is-active-input: 0 0 0 0.125em
+  $spak-bulma-form-focus-box-shadow-color;
+$spak-bulma-form-focus-box-shadow-textarea: none; //inset 0 0.0625em 0.125em $spak-bulma-form-focus-box-shadow-color;
+$spak-bulma-form-field-border-radius: 0.375rem;
+$spak-bulma-form-bg-color: c.$white;
+$spak-bulma-form-color: c.$black-mute;
+$spak-bulma-form-border-color: #dbdbdb;
+
+//--form-floating
+$spak-float-container-margin: auto; //1rem 0 0 0;
+$spak-float-field-color: inherit;
+$spak-float-border-color: c.$secondary; //rgba($secondary, 0.35);
+$spak-float-border-color-focus: c.$secondary; //rgba($secondary, 0.65);
+$spak-float-placeholder-color: rgba(c.$secondary-text, 0.75);
+$spak-float-label-color: $spak-float-placeholder-color;
+$spak-float-label-color-active: c.$secondary-text; //darken($spak-float-label-color, 20%);
+$spak-float-label-bg: c.$white;
+$spak-float-padding: calc(0.54em - 1px) calc(0.75em - 1px);
+$spak-float-padding-label: calc(0.5em - 1px) calc(0.75em - 1px); //0.375rem 0.75rem;
+$spak-float-padding-label-focus: 0 calc(0.75em - 1px);
+$spak-float-transition: all 0.25s ease-in-out;
+$spak-float-label-font-size: 1rem;
+$spak-float-label-transform: scale(0.85) translateY(-1rem) translateX(0.15rem);
+$spak-float-active-box-shadow-color: rgba(
+  color.adjust($spak-float-border-color-focus, $lightness: 5%),
+  0.75
+);
+
+//--cards
+$spak-card-bg-color: c.$white;
+$spak-card-txt-color: c.$secondary-text;
+$spak-card-header-bg-color: transparent;
+$spak-card-header-txt-color: inherit;
+$spak-card-header-title-bg-color: transparent;
+$spak-card-header-title-txt-color: inherit;
+$spak-card-shadow-color: #0a0a0a1a;
+$spak-card-content-bg-color: transparent;
+$spak-card-content-txt-color: inherit;
+$spak-card-footer-bg-color: transparent;
+$spak-card-footer-txt-color: inherit;
+$spak-card-footer-border-color: #ededed;
+$spak-card-divider-bg-color: c.$secondary;
+$spak-card-divider-txt-color: c.$white;
+
+//-- checkbox & radio
+$spak-check-bg: transparent;
+$spak-check-bg-checked: c.$secondary;
+$spak-check-color: c.$white;
+$spak-check-border-color: rgba(c.$secondary, 0.65);
+$spak-check-focus-outline-color: rgba(c.$secondary, 0.5);
+$spak-check-disabled-bg-color: color.adjust($spak-check-bg, $lightness: 20%);
+$spak-check-disabled-color: color.adjust($spak-check-color, $lightness: 20%);
+$spak-check-disabled-border-color: color.adjust(
+  rgba(color.adjust($spak-check-bg-checked, $lightness: -20%), 0.65),
+  $lightness: 20%
+);
+$spak-radio-inset-color: c.$secondary;
+$spak-radio-bg-checked: transparent; //$white;
+
+//--links
+$spak-link-color: c.$primary-text;
+
+//--table
+$spak-table-bg-color: inherit;
+$spak-table-txt-color: inherit;
+$spak-table-header-bg-color: c.$primary-text;
+$spak-table-header-txt-color: c.$white;
+$spak-table-border-color: #dee2e6;
+$spak-table-hover-bg: #00000013;
+$spak-table-hover-color: #212529;
+$spak-table-th-bg: inherit;
+$spak-table-th-txt: c.$secondary-text;
+
+//--text
+$spak-title-color: c.$primary-text;
+$spak-title-fs: 1.7rem;
+$spak-title-fw: 600;
+$spak-title-padding-x: 0.8em;
+$spak-title-padding-y: 0.8em;
+$spak-title-line-height: 1.125;
+$spak-subtitle-color: c.$secondary-text;
+$spak-subtitle-fs: 0.8rem;
+$spak-subtitle-fw: 400;
+$spak-txt-form-hint: rgba(c.$primary-text, 0.7);
+
+//--sweetalert class
+$sweetalert-bg-color: c.tint-color(c.$primary, 80%);
+$sweetalert-active-bg-color: c.tint-color(c.$primary, 85%);
+$sweetalert-border-color: $sweetalert-bg-color;
+$sweetalert-active-border-color: $sweetalert-active-bg-color;
+$sweetalert-color: c.$primary;
+
+//*** DEFINIZIONE VARIABILI ***
+
+//? root
+:root {
+  @include register-vars(
+    (
+      color: default,
+      "background-color": c.$white-mute,
+      "color-dark": c.$white-mute,
+      "background-color-dark": c.$black-mute,
+      "font-family": $font-family,
+      "font-size": 16px,
+      "font-weight": 400,
+      "body-min-height": 100vh,
+      "body-line-height": 1.6,
+    ),
+    "root-"
+  );
+}
+//? colori
+:root {
+  @include register-vars(
+    (
+      "primary": c.$primary,
+      "primary-text": c.$primary-text,
+      "secondary": c.$secondary,
+      "secondary-text": c.$secondary-text,
+      "white": c.$white,
+      "white-soft": c.$white-soft,
+      "white-mute": c.$white-mute,
+      "black": c.$black,
+      "black-soft": c.$black-soft,
+      "black-mute": c.$black-mute,
+      "indigo": c.$indigo,
+      "text-light-1": c.$indigo,
+      "text-light-2": c.$text-light-2,
+      "text-dark-1": c.$white,
+      "text-dark-2": c.$text-dark-2,
+      "error-color": c.$error-color,
+      "beige": #fdf0d5,
+      "blue1": #003049,
+      "blue2": #669bbc,
+    ),
+    "spak-color-"
+  );
+}
+
+//? classi
+:root {
+  @include register-vars(
+    (
+      "btn-bg-color": $spak-btn-bg-color,
+      "btn-txt-color": $spak-btn-txt-color,
+      "btn-border-color": $spak-btn-border-color,
+      "btn-bg-active": $spak-btn-bg-active,
+      "btn-border-active": $spak-btn-border-active,
+      "btn-font-active": $spak-btn-font-active,
+      "btn-padding-x": $spak-btn-padding-x,
+      "btn-padding-y": $spak-btn-padding-y,
+      "btn-border-radius": $spak-btn-border-radius,
+      "btn-box-shadow": $spak-btn-box-shadow,
+      "btn-disabled-opacity": $spak-btn-disabled-opacity,
+      "btn-outline-color": $spak-btn-outline-color,
+      "btn-outline-color-focus-not-active":
+        $spak-btn-outline-color-focus-not-active,
+      "btn-focus-box-shadow": $spak-btn-focus-box-shadow,
+      "btn-transition": $spak-btn-transition,
+      "btn-disabled-color": $spak-btn-disabled-color,
+      "btn-disabled-bg-color": $spak-btn-disabled-bg-color,
+      "btn-disabled-border-color": $spak-btn-disabled-border-color,
+      "btn-2-bg-color": $spak-btn-2-bg-color,
+      "btn-2-txt-color": $spak-btn-2-txt-color,
+      "btn-2-border-color": $spak-btn-2-border-color,
+      "btn-2-bg-active": $spak-btn-2-bg-active,
+      "btn-2-border-active": $spak-btn-2-border-active,
+      "btn-2-font-active": $spak-btn-2-font-active,
+      "btn-2-outline-color": $spak-btn-2-outline-color,
+      "btn-2-outline-color-focus-not-active":
+        $spak-btn-2-outline-color-focus-not-active,
+      "btn-2-box-shadow": $spak-btn-2-box-shadow,
+      "btn-2-focus-box-shadow": $spak-btn-2-focus-box-shadow,
+      "btn-2-disabled-color": $spak-btn-2-disabled-color,
+      "btn-2-disabled-bg-color": $spak-btn-2-disabled-bg-color,
+      "btn-2-disabled-border-color": $spak-btn-2-disabled-border-color,
+      "btn-notification-icon-color": $btn-notification-icon-color,
+      "box-bg": $spak-box-bg,
+      "box-color": $spak-box-color,
+      "box-border-radius": $spak-box-border-radius,
+      "box-padding": $spak-box-padding,
+      "form-input-padding": $spak-form-input-padding,
+      "placeholder-color": $spak-placeholder-color,
+      "form-icon-input-icon-color": $spak-form-icon-input-icon-color,
+      "bulma-form-focus-border-color": $spak-bulma-form-focus-border-color,
+      "bulma-form-focus-box-shadow-color":
+        $spak-bulma-form-focus-box-shadow-color,
+      "bulma-form-focus-box-shadow-input":
+        $spak-bulma-form-focus-box-shadow-input,
+      "bulma-form-focus-box-shadow-is-active-input":
+        $spak-bulma-form-focus-box-shadow-is-active-input,
+      "bulma-form-focus-box-shadow-textarea":
+        $spak-bulma-form-focus-box-shadow-textarea,
+      "bulma-form-field-border-radius": $spak-bulma-form-field-border-radius,
+      "bulma-form-bg-color": $spak-bulma-form-bg-color,
+      "bulma-form-color": $spak-bulma-form-color,
+      "bulma-form-border-color": $spak-bulma-form-border-color,
+      "float-container-margin": $spak-float-container-margin,
+      "float-field-color": $spak-float-field-color,
+      "float-border-color": $spak-float-border-color,
+      "float-border-color-focus": $spak-float-border-color-focus,
+      "float-placeholder-color": $spak-float-placeholder-color,
+      "float-label-color": $spak-float-label-color,
+      "float-label-color-active": $spak-float-label-color-active,
+      "float-label-bg": $spak-float-label-bg,
+      "float-padding": $spak-float-padding,
+      "float-padding-label": $spak-float-padding-label,
+      "float-padding-label-focus": $spak-float-padding-label-focus,
+      "float-transition": $spak-float-transition,
+      "float-label-font-size": $spak-float-label-font-size,
+      "float-label-transform": $spak-float-label-transform,
+      "float-active-box-shadow-color": $spak-float-active-box-shadow-color,
+      "card-bg-color": $spak-card-bg-color,
+      "card-txt-color": $spak-card-txt-color,
+      "card-header-bg-color": $spak-card-header-bg-color,
+      "card-header-txt-color": $spak-card-header-txt-color,
+      "card-header-title-bg-color": $spak-card-header-title-bg-color,
+      "card-header-title-txt-color": $spak-card-header-title-txt-color,
+      "card-shadow-color": $spak-card-shadow-color,
+      "card-content-bg-color": $spak-card-content-bg-color,
+      "card-content-txt-color": $spak-card-content-txt-color,
+      "card-footer-bg-color": $spak-card-footer-bg-color,
+      "card-footer-txt-color": $spak-card-footer-txt-color,
+      "card-footer-border-color": $spak-card-footer-border-color,
+      "card-divider-bg-color": $spak-card-divider-bg-color,
+      "card-divider-txt-color": $spak-card-divider-txt-color,
+      "check-bg": $spak-check-bg,
+      "check-bg-checked": $spak-check-bg-checked,
+      "check-color": $spak-check-color,
+      "check-border-color": $spak-check-border-color,
+      "check-focus-outline-color": $spak-check-focus-outline-color,
+      "check-disabled-color": $spak-check-disabled-color,
+      "check-disabled-borer-color": $spak-check-disabled-border-color,
+      "radio-inset-color": $spak-radio-inset-color,
+      "radio-bg-checked": $spak-radio-bg-checked,
+      "link-color": $spak-link-color,
+      "table-bg-color": $spak-table-bg-color,
+      "table-txt-color": $spak-table-txt-color,
+      "table-header-bg-color": $spak-table-header-bg-color,
+      "table-header-txt-color": $spak-table-header-txt-color,
+      "table-border-color": $spak-table-border-color,
+      "table-hover-bg": $spak-table-hover-bg,
+      "table-hover-color": $spak-table-hover-color,
+      "table-th-bg": $spak-table-th-bg,
+      "table-th-txt": $spak-table-th-txt,
+      "title-color": $spak-title-color,
+      "title-fs": $spak-title-fs,
+      "title-fw": $spak-title-fw,
+      "title-padding-x": $spak-title-padding-x,
+      "title-padding-y": $spak-title-padding-y,
+      "title-line-height": $spak-title-line-height,
+      "subtitle-color": $spak-subtitle-color,
+      "subtitle-fs": $spak-subtitle-fs,
+      "subtitle-fw": $spak-subtitle-fw,
+      "txt-form-hint": $spak-txt-form-hint,
+      "sweetalert-bg-color": $sweetalert-bg-color,
+      "sweetalert-active-bg-color": $sweetalert-active-bg-color,
+      "sweetalert-border-color": $sweetalert-border-color,
+      "sweetalert-active-border-color": $sweetalert-active-border-color,
+      "sweetalert-color": $sweetalert-color,
+    ),
+    "spak-"
+  );
+}
+
+:root {
+  @include register-vars(
+    (
+      "sidebar-container-padding-x": 1.35em,
+      "offcanvas-bg-color": rgba(c.$secondary, 0.9),
+      "offcanvas-color": adjust(c.$primary-text, 20%),
+      "offcanvas-background-bg-color": #93939380,
+      "tooltip-bg-color": rgba(c.$secondary, 0.95),
+      "tooltip-color": c.$white-soft,
+      "cursor-color1": rgba(c.$secondary, 0.65),
+      "cursor-color2": rgba(c.$primary, 0.55),
+      "sidebar-bg-color": c.$white,
+      "sidebar-padding-x": 1.35em,
+      "contextmenu-bg-color": c.$white,
+      "contextmenu-color": c.$primary-text,
+      "contextmenu-bg-hover": c.$white-mute,
+      "contextmenu-color-hover": c.$primary-text,
+      "contextmenu-bg-disabled": c.$white,
+      "contextmenu-color-disabled": rgba(c.$primary, 0.12),
+    ),
+    "spak-comp-"
+  );
+}

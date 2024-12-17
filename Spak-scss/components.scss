@@ -3,6 +3,7 @@
 //!!! SIDEBAR PAGE !!!
 .sidebar-page {
   display: grid;
+  grid-template-columns: -webkit-max-content 1fr;
   grid-template-columns: max-content 1fr;
 }
 .sidebar-content {
@@ -23,25 +24,25 @@
 .sidebar-item-container {
   display: flex;
   flex-direction: column;
-  padding: $spak-comp-sidebar-container-padding-x 0;
+  padding: var(--spak-comp-sidebar-container-padding-x 0);
   .sidebar-item {
     font-size: 0.9em;
     margin: 0em;
     padding: 0.25em 0 0.25em 0.6em;
     border-radius: 8px;
     font-weight: bolder;
-    color: $black-mute;
+    color: var(--spak-color-black-mute);
     cursor: pointer;
     transition: all 0.25s;
     &:hover {
-      color: $primary-text;
+      color: var(--spak-color-primary-text);
       transform: translateX(8px);
     }
   }
   .sidebar-separator {
     margin-bottom: 0.35em;
     &:not(:first-child) {
-      margin-top: $spak-comp-sidebar-container-padding-x;
+      margin-top: var(--spak-comp-sidebar-container-padding-x);
     }
   }
 }
